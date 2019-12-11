@@ -25,7 +25,7 @@
             <Image Margin="10,10,10,0" Source="logo.png" Grid.ColumnSpan="4"></Image>
 
             <Image Margin="10,10,10,0" Grid.Column="0" Grid.Row="1" Source="sound.png"></Image>
-<<<<<<< HEAD
+
             <Label x:Name="SoundEffects" Margin="10,10,10,0" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="Black"  FontSize="25"></Label>
             <Switch x:Name="Sounds" Margin="10,10,10,0" ThumbColor="White" Grid.Row="1" OnColor="#fea201" Grid.Column="3"></Switch>
 
