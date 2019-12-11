@@ -118,30 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CountOfQuestions" xml:space="preserve">
-    <value>Count of questions</value>
+    <value>Anzahl der Fragen</value>
   </data>
   <data name="Languages" xml:space="preserve">
-    <value>Languages</value>
+    <value>Sprachen</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>Login</value>
+    <value>Einloggen</value>
   </data>
   <data name="Notice" xml:space="preserve">
-    <value>Notice</value>
+    <value>Beachten</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>Password</value>
+    <value>Passwort</value>
   </data>
   <data name="PlayButton" xml:space="preserve">
-    <value>Play</value>
+    <value>Abspielen</value>
   </data>
   <data name="SignInButton" xml:space="preserve">
-    <value>Sign In</value>
+    <value>Anmelden</value>
   </data>
   <data name="SoundEffects" xml:space="preserve">
-    <value>Sound Effects</value>
+    <value>Soundeffekte</value>
   </data>
   <data name="Subjects" xml:space="preserve">
-    <value>Subjects</value>
+    <value>Fächer</value>
   </data>
 </root>

@@ -61,11 +61,38 @@ namespace StudentBook.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Count of questions.
+        /// </summary>
+        public static string CountOfQuestions {
+            get {
+                return ResourceManager.GetString("CountOfQuestions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Languages.
+        /// </summary>
+        public static string Languages {
+            get {
+                return ResourceManager.GetString("Languages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Login.
         /// </summary>
         public static string Login {
             get {
                 return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Notice.
+        /// </summary>
+        public static string Notice {
+            get {
+                return ResourceManager.GetString("Notice", resourceCulture);
             }
         }
         
@@ -79,11 +106,38 @@ namespace StudentBook.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Play.
+        /// </summary>
+        public static string PlayButton {
+            get {
+                return ResourceManager.GetString("PlayButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Sign In.
         /// </summary>
         public static string SignInButton {
             get {
                 return ResourceManager.GetString("SignInButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Sound Effects.
+        /// </summary>
+        public static string SoundEffects {
+            get {
+                return ResourceManager.GetString("SoundEffects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Subjects.
+        /// </summary>
+        public static string Subjects {
+            get {
+                return ResourceManager.GetString("Subjects", resourceCulture);
             }
         }
     }
