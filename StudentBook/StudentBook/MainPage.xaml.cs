@@ -37,9 +37,8 @@ namespace StudentBook
             }
             catch (SQLite.SQLiteException)
             {
-                //await DisplayAlert("error", "Can not find datebase", "ok");
-                studentDB = new StudentDBEntity("task.db");
-                GetLanguages();
+                await DisplayAlert("error", "Can not find datebase", "ok");
+                //GetLanguages();
             }
         }
         private async void Settings_Clicked(object sender, EventArgs e)
