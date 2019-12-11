@@ -17,12 +17,13 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <AbsoluteLayout>
-            <Image Source="logo.png" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.05,300,100"></Image>
 
             <Label x:Name="Login" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.35,300,100" FontSize="30" TextColor="Black"></Label>
             <Entry AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.40,300,50"></Entry>
             <Label x:Name="Password" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.60,300,100" FontSize="30" TextColor="Black"></Label>
 
+            <Image Source="logo.png" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.05,300,100"></Image>
+            
             <Entry IsPassword="True" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.65,300,50"></Entry>
             <Button x:Name="SignInButton" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.8,300,50"  Clicked="Login_Clicked" Style="{StaticResource Key=ButtonsStyle}"></Button>
         </AbsoluteLayout>
