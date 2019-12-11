@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="StudentBook.RegisterForm"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+             
+             BackgroundImageSource="back.jpg">
+    <ContentPage.Resources>
+        <Style x:Key="ButtonsStyle" TargetType="Button">
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="BackgroundColor" Value="#5397fc"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="CornerRadius" Value="30"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <Label AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.05,300,100" Text="Student Book" FontSize="50" TextColor="Black"></Label>
+            <Label AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.35,300,100" Text="Email" FontSize="30" TextColor="Black"></Label>
+            <Entry AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.40,300,50"></Entry>
+            <Label AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.60,300,100" Text="Password" FontSize="30" TextColor="Black"></Label>
+            <Entry IsPassword="True" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.65,300,50"></Entry>
+            <Button AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.8,300,50" Text="Login" Clicked="Login_Clicked" Style="{StaticResource Key=ButtonsStyle}"></Button>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
