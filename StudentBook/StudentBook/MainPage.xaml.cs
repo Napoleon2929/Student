@@ -21,6 +21,7 @@ namespace StudentBook
             InitializeComponent();
             GetLanguages();
             PlayButton.Text = Resx.AppResources.PlayButton;
+
             //Navigation.PopModalAsync();
         }
         public async void GetLanguages()
@@ -28,7 +29,7 @@ namespace StudentBook
             StudentDBEntity studentDB = new StudentDBEntity("task.db");
             try
             {
-                
+
                 var table = await studentDB.GetLanguagesTable();
                 var result = "";
                 foreach (var str in table)
@@ -43,8 +44,16 @@ namespace StudentBook
         }
         private async void Settings_Clicked(object sender, EventArgs e)
         {
-            
+
             await Navigation.PushModalAsync(new Settings());
+        }
+        private async void Play_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new PlayingRoom());
+        }
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
         }
     }
 }

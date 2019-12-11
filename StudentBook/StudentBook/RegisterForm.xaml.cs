@@ -24,9 +24,6 @@ namespace StudentBook
 
         private async void Login_Clicked(object sender, EventArgs e)
         {
-            
-            //Navigation.InsertPageBefore(new MainPage(), this); 
-            //await Navigation.PopAsync().ConfigureAwait(false);
             await Navigation.PushModalAsync(new MainPage());
         }
     }
