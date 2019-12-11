@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using DatabaseLibrary;
 using System.Net.Http;
-using Java.Net;
 using System.Threading;
 
 namespace StudentBook
@@ -20,13 +19,16 @@ namespace StudentBook
         public MainPage()
         {
             InitializeComponent();
+            GetLanguages();
             //Navigation.PopModalAsync();
         }
         public async void GetLanguages()
         {
+            StudentDBEntity studentDB = new StudentDBEntity("task.db");
             try
             {
-                var table = await Singleton.studentDB.database.Table<Languages>().ToListAsync();
+                
+                var table = await studentDB.GetLanguagesTable();
                 var result = "";
                 foreach (var str in table)
                     result += $"{str.ID}\n";
@@ -35,7 +37,7 @@ namespace StudentBook
             catch (SQLite.SQLiteException)
             {
                 //await DisplayAlert("error", "Can not find datebase", "ok");
-                Singleton.studentDB = new StudentDBEntity("task.db");
+                studentDB = new StudentDBEntity("task.db");
                 GetLanguages();
             }
         }

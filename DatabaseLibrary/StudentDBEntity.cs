@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using DatabaseLibrary.Models;
+using Xamarin.Forms;
 
 namespace DatabaseLibrary
 {
@@ -12,8 +13,8 @@ namespace DatabaseLibrary
         public SQLiteAsyncConnection database;
         public StudentDBEntity(string connection)
         {
-            //string databasePath = DependencyService.Get<ISQLite>().GetDatabasePath(connection);
-            database = new SQLiteAsyncConnection(connection);
+            string databasePath = DependencyService.Get<ISQLite>().GetDatabasePath(connection);
+            database = new SQLiteAsyncConnection(databasePath);
         }
         //get tables
         public async Task<List<Languages>> GetLanguagesTable()
