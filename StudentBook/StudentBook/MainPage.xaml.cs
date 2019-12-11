@@ -20,6 +20,7 @@ namespace StudentBook
         {
             InitializeComponent();
             GetLanguages();
+            PlayButton.Text = Resx.AppResources.PlayButton;
             //Navigation.PopModalAsync();
         }
         public async void GetLanguages()
@@ -42,6 +43,7 @@ namespace StudentBook
         }
         private async void Settings_Clicked(object sender, EventArgs e)
         {
+            
             await Navigation.PushModalAsync(new Settings());
         }
     }

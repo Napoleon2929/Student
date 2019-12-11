@@ -17,6 +17,12 @@ namespace StudentBook
         public Settings()
         {
             InitializeComponent();
+            SoundEffects.Text = Resx.AppResources.SoundEffects;
+            Notice.Text = Resx.AppResources.Notice;
+            Subjects.Text = Resx.AppResources.Subjects;
+            Languages.Text = Resx.AppResources.Languages;
+            CountOfQuestions.Text = Resx.AppResources.CountOfQuestions;
+
             parametrs = iParams.GetParametrs();
             Sounds.IsToggled = parametrs.Sounds;
             Notices.IsToggled = parametrs.Notices;
@@ -28,11 +34,14 @@ namespace StudentBook
             parametrs.Sounds = Sounds.IsToggled;
             parametrs.Notices = Notices.IsToggled;
             iParams.SetParametrs(parametrs);
+
         }
+
         private async void SelectSubject(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new Subjects());
         }
+
         private async void SelectLanguage(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new Languages());
