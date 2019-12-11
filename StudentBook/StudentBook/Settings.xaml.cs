@@ -17,13 +17,5 @@ namespace StudentBook
             InitializeComponent();
             
         }
-        private async void SelectSubject(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new Subjects());
-        }
-        private async void SelectLanguage(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new Languages());
-        }
     }
 }

@@ -5,11 +5,12 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       mc:Ignorable="d"
-    BackgroundColor="ForestGreen">
+             
+             BackgroundImageSource="back.jpg">
     <ContentPage.Resources>
         <Style x:Key="ButtonsStyle" TargetType="Button">
             <Setter Property="HeightRequest" Value="50"/>
-            <Setter Property="BackgroundColor" Value="#fea201"/>
+            <Setter Property="BackgroundColor" Value="#5397fc"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="TextColor" Value="White"/>
             <Setter Property="CornerRadius" Value="30"/>

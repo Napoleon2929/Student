@@ -5,11 +5,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="StudentBook.MainPage"
-             BackgroundColor="ForestGreen">
+             BackgroundImageSource="back.jpg">
     <ContentPage.Resources>
         <Style x:Key="ButtonsStyle" TargetType="Button">
             <Setter Property="HeightRequest" Value="50"/>
-            <Setter Property="BackgroundColor" Value="#fea201"/>
+            <Setter Property="BackgroundColor" Value="#5397fc"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="TextColor" Value="White"/>
             <Setter Property="CornerRadius" Value="30"/>
@@ -18,7 +18,7 @@
     <ContentPage.Content>
         <AbsoluteLayout>
             <ImageButton Clicked="Settings_Clicked" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.99,0.01,40,40" BackgroundColor="Transparent" Source="Settings.png"></ImageButton>
-            <Image Source="logo.png" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,300,100"></Image>
+            <Label AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,300,100" Text="Student Book" FontSize="50" TextColor="Black"></Label>
             <Button AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.9,300,50" Text="Play"  Style="{StaticResource Key=ButtonsStyle}"></Button>
         </AbsoluteLayout>
     </ContentPage.Content>
