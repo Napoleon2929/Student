@@ -5,11 +5,12 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       mc:Ignorable="d"
-    BackgroundColor="ForestGreen">
+             
+             BackgroundImageSource="back.jpg">
     <ContentPage.Resources>
         <Style x:Key="ButtonsStyle" TargetType="Button">
             <Setter Property="HeightRequest" Value="50"/>
-            <Setter Property="BackgroundColor" Value="#fea201"/>
+            <Setter Property="BackgroundColor" Value="#5397fc"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="TextColor" Value="White"/>
             <Setter Property="CornerRadius" Value="30"/>
@@ -17,17 +18,10 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <AbsoluteLayout>
-<<<<<<< HEAD
             <Label AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.05,300,100" Text="Student Book" FontSize="50" TextColor="Black"></Label>
             <Label x:Name="Login" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.35,300,100" FontSize="30" TextColor="Black"></Label>
             <Entry AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.40,300,50"></Entry>
             <Label x:Name="Password" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.60,300,100" FontSize="30" TextColor="Black"></Label>
-=======
-            <Image Source="logo.png" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.05,300,100"></Image>
-            <Label AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.35,300,100" Text="Email" FontSize="30" TextColor="#fea201"></Label>
-            <Entry AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.40,300,50"></Entry>
-            <Label AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.60,300,100" Text="Password" FontSize="30" TextColor="#fea201"></Label>
->>>>>>> 160930197fdb5f7346664bd74f604760146cddae
             <Entry IsPassword="True" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.65,300,50"></Entry>
             <Button x:Name="SignInButton" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.8,300,50"  Clicked="Login_Clicked" Style="{StaticResource Key=ButtonsStyle}"></Button>
         </AbsoluteLayout>  
