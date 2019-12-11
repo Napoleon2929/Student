@@ -7,7 +7,7 @@
              x:Class="StudentBook.Settings"
              BackgroundColor="LightGray">
     <ContentPage.Content>
-        <Grid Margin="0,40,0,0">
+        <Grid Margin="0,0,0,0" BackgroundColor="ForestGreen">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -22,53 +22,31 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <Grid Padding="-10,10,0,10" BackgroundColor="WhiteSmoke" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Image Grid.Column="0" Source="sound.png"></Image>
-                <Label Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="Black" Text="Sound Effects" FontSize="25"></Label>
-                <Switch ThumbColor="White" OnColor="#5397fc" Grid.Column="3"></Switch>
-                
-                <Image Grid.Column="0" Grid.Row="1" Source="notice.png"></Image>
-                <Label Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="Black" Text="Notice" FontSize="25"></Label>
-                <Switch ThumbColor="White" Grid.Row="1" OnColor="#5397fc" Grid.Column="3"></Switch>
-            </Grid>
-            <Grid Padding="-10,10,0,10" Margin="0,40,0,-40" BackgroundColor="WhiteSmoke" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Button BackgroundColor="Transparent" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0"></Button>
-                <Image Grid.Column="0" Source="subject.png"></Image>
-                <Label Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="Black" Text="Subjects" FontSize="25"></Label>
-                <Label Grid.Column="3" Text=">" FontSize="30" HorizontalOptions="End" Margin="0,0,20,0" ></Label>
+            <Image Margin="10,10,10,0" Source="logo.png" Grid.ColumnSpan="4"></Image>
 
-                <Button BackgroundColor="Transparent" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1"></Button>
-                <Image Grid.Column="0" Grid.Row="1" Source="flag.png"></Image>
-                <Label Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="Black" Text="Language" FontSize="25"></Label>
-                <Label Grid.Column="3" Grid.Row="1" Text=">" FontSize="30" HorizontalOptions="End" Margin="0,0,20,0" ></Label>
+            <Image Margin="10,10,10,0" Grid.Column="0" Grid.Row="1" Source="sound.png"></Image>
+            <Label Margin="10,10,10,0" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="Black" Text="Sound Effects" FontSize="25"></Label>
+            <Switch Margin="10,10,10,0" ThumbColor="White" Grid.Row="1" OnColor="#fea201" Grid.Column="3"></Switch>
 
-                <Button BackgroundColor="Transparent" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="2"></Button>
-                <Image Grid.Column="0" Grid.Row="2" Source="timer.png"></Image>
-                <Label Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="Black" Text="Timer" FontSize="25"></Label>
-                <Label Grid.Column="3" Grid.Row="2" Text=">" FontSize="30" HorizontalOptions="End" Margin="0,0,20,0" ></Label>
-            </Grid>
+            <Image Margin="10,10,10,0" Grid.Column="0" Grid.Row="2" Source="notice.png"></Image>
+            <Label Margin="10,10,100,0" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" VerticalOptions="Center" TextColor="Black" Text="Notice" FontSize="25"></Label>
+            <Switch Margin="10,10,10,0" ThumbColor="White" Grid.Row="2" OnColor="#fea201" Grid.Column="3"></Switch>
+
+            <Button Clicked="SelectSubject" BackgroundColor="Transparent"  Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="3"></Button>
+            <Image Margin="10,10,10,0" Grid.Column="0" Grid.Row="3" Source="subject.png"></Image>
+            <Label Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="Black" Text="Subjects" FontSize="25"></Label>
+            <Label Grid.Column="3" Grid.Row="3" Text=">" FontSize="70" HorizontalOptions="End" Margin="0,0,20,0" ></Label>
+
+            <Button Clicked="SelectLanguage" BackgroundColor="Transparent" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="4"></Button>
+            <Image Margin="10,10,10,0" Grid.Column="0" Grid.Row="4" Source="flag.png"></Image>
+            <Label Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="Black" Text="Languages" FontSize="25"></Label>
+            <Label Grid.Column="3" Grid.Row="4" Text=">" FontSize="70" HorizontalOptions="End" Margin="0,0,20,0" ></Label>
+
+            <Button BackgroundColor="Transparent" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="5"></Button>
+            <Image Margin="10,10,10,0" Grid.Column="0" Grid.Row="5" Source="timer.png"></Image>
+            <Label Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="Black" Text="Count of questions" FontSize="25"></Label>
+            <Label Grid.Column="3" Grid.Row="5" Text=">" FontSize="70" HorizontalOptions="End" Margin="0,0,20,0" ></Label>
+            
         </Grid>
     </ContentPage.Content>
 </ContentPage>
