@@ -30,16 +30,16 @@
             </Grid.RowDefinitions>
             <Label Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Start" FontSize="50" Text="10"></Label>
             <Label Grid.Column="1" Grid.Row="0" HorizontalTextAlignment="Start" FontSize="50" Text="10/10"></Label>
-            <ScrollView Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2">
+            <ScrollView Margin="10,-60,10,80" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2">
                 <StackLayout BackgroundColor="Orange">
-                    <Label FontSize="35" TextColor="Black" Text="AzazAzazazaAzazazaAzazazaAzazazaAzazazaAzazazaAzazazaAzazazaAzazazaAzazazaAzazazaAzazazaAzazazaAzazazaAzazazaAzazazaAzazazaAzazazaAzazazaAzazazaaza"></Label>
+                    <Label FontSize="35" TextColor="Black" Text="Questions"></Label>
                 </StackLayout>
             </ScrollView>
-            <ScrollView Grid.ColumnSpan="2" Grid.Row="3" BackgroundColor="Orange">
+            <ScrollView Margin="10,-50,10,0" Grid.ColumnSpan="2" Grid.Row="3" BackgroundColor="Orange">
                 <Grid x:Name="QuestionsGrid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="4*"/>
                     </Grid.ColumnDefinitions>
                 </Grid>
             </ScrollView>

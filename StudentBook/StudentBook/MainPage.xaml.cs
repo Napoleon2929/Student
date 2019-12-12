@@ -20,7 +20,7 @@ namespace StudentBook
         public MainPage()
         {
             InitializeComponent();
-            GetLanguages();
+            //GetLanguages();
             PlayButton.Text = Resx.AppResources.PlayButton;
 
             //Navigation.PopModalAsync();

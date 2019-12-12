@@ -19,7 +19,7 @@ namespace StudentBook
             {
                 QuestionsGrid.RowDefinitions.Add(new RowDefinition());
                 var checkbox = new CheckBox() { ClassId = $"c{i}" };
-                var text = new Label() { Text = "Record" + i.ToString() };
+                var text = new Label() { Text = "RecRecordRecordRecordRecordRecordRecordRecordRecordRecordRecordRecordRecordRecordRecordRecordRecordord" + i.ToString() };
                 QuestionsGrid.Children.Add(checkbox);
                 QuestionsGrid.Children.Add(text);
                 Grid.SetColumn(checkbox, 0);
