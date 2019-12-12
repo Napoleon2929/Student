@@ -15,8 +15,14 @@ namespace StudentBook
         public PlayingRoom()
         {
             InitializeComponent();
+            QuestionsGrid.RowDefinitions.Add(new RowDefinition());
             for (var i = 0; i < 100; i++)
-                QuestionsGrid.Children.Add(new Label() { Text = "Record" + i.ToString()});
+            {
+                var label = new Label() { Text = "Record" + i.ToString() };
+                QuestionsGrid.Children.Add(label);
+                Grid.SetRow(label, i);
+            }
+                
         }
     }
 }

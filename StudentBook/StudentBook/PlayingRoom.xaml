@@ -36,8 +36,8 @@
                 </StackLayout>
             </ScrollView>
             <ScrollView Grid.ColumnSpan="2" Grid.Row="3" BackgroundColor="Orange">
-                <StackLayout x:Name="QuestionsGrid">
-                </StackLayout>
+                <Grid x:Name="QuestionsGrid">
+                </Grid>
             </ScrollView>
            
             <Button Margin="30,30,30,20" Text="Entered" Grid.ColumnSpan="2" Grid.Row="4" Style="{StaticResource Key=ButtonsStyle}"></Button>
