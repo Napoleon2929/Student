@@ -37,6 +37,10 @@
             </ScrollView>
             <ScrollView Grid.ColumnSpan="2" Grid.Row="3" BackgroundColor="Orange">
                 <Grid x:Name="QuestionsGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
                 </Grid>
             </ScrollView>
            

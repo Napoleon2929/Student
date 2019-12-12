@@ -20,8 +20,11 @@ namespace StudentBook
                 QuestionsGrid.RowDefinitions.Add(new RowDefinition());
                 var checkbox = new CheckBox() { ClassId = $"c{i}" };
                 var text = new Label() { Text = "Record" + i.ToString() };
-                text.Parent = checkbox;
                 QuestionsGrid.Children.Add(checkbox);
+                QuestionsGrid.Children.Add(text);
+                Grid.SetColumn(checkbox, 0);
+                Grid.SetColumn(text, 1);
+                Grid.SetRow(checkbox, i);
                 Grid.SetRow(text, i);
             }
                 

@@ -13,6 +13,7 @@ namespace DatabaseLibrary.Models
         public int[] CorrectAnswer { get; set; }
         public string[] Answers { get; set; }
 
+        public QuestionsToView() { }
         public QuestionsToView(Questions questions)
         {
             ID = questions.ID;

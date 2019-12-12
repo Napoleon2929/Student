@@ -9,6 +9,7 @@ namespace DatabaseLibrary.Models
         public int ID { get; set; }
         public string Name { get; set; }
 
+        public SubjectsToView() { }
         public SubjectsToView(Subjects subjects)
         {
             ID = subjects.ID;

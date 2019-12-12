@@ -10,6 +10,8 @@ namespace DatabaseLibrary.Models
         public int SubjectID { get; set; }
         public string Name { get; set; }
 
+        public TopicsToView() { }
+
         public TopicsToView(Topics topics)
         {
             ID = topics.ID;
