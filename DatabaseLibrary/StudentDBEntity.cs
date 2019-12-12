@@ -48,6 +48,14 @@ namespace DatabaseLibrary
             }
             return new SubjectsToView(data);
         }
+        public async Task<List<SubjectsToView>> GetSubjectsRange(List<Subjects> subjects, string language)
+        {
+            List<SubjectsToView> toViews = new List<SubjectsToView>();
+            foreach(var item in subjects)
+                toViews.Add(await GetSubjects(item.ID, language));
+            return toViews; 
+        }
+
         public async Task<TopicsToView> GetTopics(int id, string language)
         {
             var data = await database.Table<TopicTranslate>().FirstOrDefaultAsync(s => s.LanguageID.Equals(language) && s.TopicID == id);
@@ -56,6 +64,14 @@ namespace DatabaseLibrary
                 return new TopicsToView(topic);
             return new TopicsToView(topic, data);
         }
+        public async Task<List<TopicsToView>> GetTopicsRange(List<Topics> subjects, string language)
+        {
+            List<TopicsToView> toViews = new List<TopicsToView>();
+            foreach (var item in subjects)
+                toViews.Add(await GetTopics(item.ID, language));
+            return toViews;
+        }
+
         public async Task<QuestionsToView> GetQuestions(int id, string language)
         {
             var data = await database.Table<QuestionTranslate>().FirstOrDefaultAsync(s => s.LanguageID.Equals(language) && s.QuestionID == id);
@@ -63,6 +79,13 @@ namespace DatabaseLibrary
             if (data == null)
                 return new QuestionsToView(question);
             return new QuestionsToView(question, data);
+        }
+        public async Task<List<QuestionsToView>> GetQuestionsRange(List<QuestionsToView> subjects, string language)
+        {
+            List<QuestionsToView> toViews = new List<QuestionsToView>();
+            foreach (var item in subjects)
+                toViews.Add(await GetQuestions(item.ID, language));
+            return toViews;
         }
     }
 }

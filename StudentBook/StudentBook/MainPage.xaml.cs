@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using DatabaseLibrary;
+using DatabaseLibrary.Models;
 using System.Net.Http;
 using System.Threading;
 
@@ -50,6 +51,19 @@ namespace StudentBook
         private async void Play_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new PlayingRoom());
+        }
+        private void SelectQuestions() 
+        {
+            Singleton.quiz = new Quiz(Singleton.parametrs.Count);
+            int questions = Singleton.parametrs.Count;
+            Dictionary<QuestionsToView, string> pairs = new Dictionary<QuestionsToView, string>();
+            Random random = new Random();
+            for (var i = 0; i < questions; i++)
+            {
+                int index = random.Next(0, Singleton.parametrs.TopicsFilter.Count);
+
+                //pairs.ContainsKey()
+            }
         }
         protected override bool OnBackButtonPressed()
         {

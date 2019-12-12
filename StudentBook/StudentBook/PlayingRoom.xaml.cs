@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Forms;
 
 namespace StudentBook
 {
@@ -15,12 +14,15 @@ namespace StudentBook
         public PlayingRoom()
         {
             InitializeComponent();
-            QuestionsGrid.RowDefinitions.Add(new RowDefinition());
+            
             for (var i = 0; i < 100; i++)
             {
-                var label = new Label() { Text = "Record" + i.ToString() };
-                QuestionsGrid.Children.Add(label);
-                Grid.SetRow(label, i);
+                QuestionsGrid.RowDefinitions.Add(new RowDefinition());
+                var checkbox = new CheckBox() { ClassId = $"c{i}" };
+                var text = new Label() { Text = "Record" + i.ToString() };
+                text.Parent = checkbox;
+                QuestionsGrid.Children.Add(checkbox);
+                Grid.SetRow(text, i);
             }
                 
         }
