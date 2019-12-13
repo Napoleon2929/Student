@@ -23,10 +23,10 @@ namespace StudentBook
             Count = 5;
             GetTopics();
         }
-        private async void GetTopics()
+        private void GetTopics()
         {
-            var topics = await studentDB.GetTopicsTable();
-            TopicsFilter = await studentDB.GetTopicsRange(topics, Language);
+            var topics = studentDB.GetTopicsTable();
+            TopicsFilter = studentDB.GetTopicsRange(topics, Language);
         }
         public Parametrs(bool sounds, bool notices, string language, int count, List<TopicsToView> topics)
         {

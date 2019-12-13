@@ -32,7 +32,7 @@ namespace StudentBook
             try
             {
 
-                var table = await studentDB.GetLanguagesTable();
+                var table = studentDB.GetLanguagesTable();
                 var result = "";
                 foreach (var str in table)
                     result += $"{str.ID}\n";
@@ -51,18 +51,18 @@ namespace StudentBook
         }
         private async void Play_Clicked(object sender, EventArgs e)
         {
-            await SelectQuestions();
-            await Navigation.PushModalAsync(new PlayingRoom());
+            SelectQuestions();
+            await Navigation.PushModalAsync(new PlayingRoom(Singleton.quiz.Questions[0]));
         }
-        private async Task SelectQuestions()
+        private void SelectQuestions()
         {
 
             Singleton.quiz = new Quiz(Singleton.parametrs.Count);
             int count = Singleton.parametrs.Count;
-            var questions = await studentDB.GetQuestionsTable();
+            var questions = studentDB.GetQuestionsTable();
             if (questions.Count <= count)
             {
-                Singleton.quiz = new Quiz(await studentDB.GetQuestionsRange(questions, Singleton.parametrs.Language));
+                Singleton.quiz = new Quiz(studentDB.GetQuestionsRange(questions, Singleton.parametrs.Language));
                 return;
             }
             List<QuestionsToView> pairs = new List<QuestionsToView>();
@@ -72,7 +72,7 @@ namespace StudentBook
                 int index = random.Next() % Singleton.parametrs.TopicsFilter.Count;
                 var topic = Singleton.parametrs.TopicsFilter[index];
                 var list = questions.Where(q => q.TopicID == topic.ID).ToList();
-                var toView = await studentDB.GetQuestionsRange(list, Singleton.parametrs.Language);
+                var toView = studentDB.GetQuestionsRange(list, Singleton.parametrs.Language);
                 var newindex = random.Next() % toView.Count;
                 bool isUnique = true;
                 foreach (var item in pairs)

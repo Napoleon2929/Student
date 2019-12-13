@@ -10,81 +10,81 @@ namespace DatabaseLibrary
 {
     public class StudentDBEntity
     {
-        public SQLiteAsyncConnection database;
+        public SQLiteConnection database;
         public StudentDBEntity(string connection)
         {
             string databasePath = DependencyService.Get<ISQLite>().GetDatabasePath(connection);
-            database = new SQLiteAsyncConnection(databasePath);
+            database = new SQLiteConnection(databasePath);
         }
         //get tables
-        public async Task<List<Languages>> GetLanguagesTable()
+        public List<Languages> GetLanguagesTable()
         {
-            return await database.Table<Languages>().ToListAsync();
+            return database.Table<Languages>().ToList();
         }
-        public async Task<List<Subjects>> GetSubjectsTable()
+        public List<Subjects> GetSubjectsTable()
         {
-            return await database.Table<Subjects>().ToListAsync();
+            return database.Table<Subjects>().ToList();
         }
-        public async Task<List<Topics>> GetTopicsTable()
+        public List<Topics> GetTopicsTable()
         {
-            return await database.Table<Topics>().ToListAsync();
+            return database.Table<Topics>().ToList();
         }
-        public async Task<List<Questions>> GetQuestionsTable()
+        public List<Questions> GetQuestionsTable()
         {
-            return await database.Table<Questions>().ToListAsync();
+            return database.Table<Questions>().ToList();
         }
-        public async Task<List<QuestionTranslate>> GetQuestionsTranslateTable()
+        public List<QuestionTranslate> GetQuestionsTranslateTable()
         {
-            return await database.Table<QuestionTranslate>().ToListAsync();
+            return database.Table<QuestionTranslate>().ToList();
         }
         // get translate
-        public async Task<SubjectsToView> GetSubjects(int id, string language)
+        public SubjectsToView GetSubjects(int id, string language)
         {
-            var data = await database.Table<SubjectTranslate>().FirstOrDefaultAsync(s => s.LanguageID.Equals(language) && s.SubjectID == id);
+            var data = database.Table<SubjectTranslate>().FirstOrDefault(s => s.LanguageID.Equals(language) && s.SubjectID == id);
             if (data == null)
             {
-                var subject = await  database.Table<Subjects>().FirstOrDefaultAsync(s => s.ID == id);
+                var subject = database.Table<Subjects>().FirstOrDefault(s => s.ID == id);
                 return new SubjectsToView(subject);
             }
             return new SubjectsToView(data);
         }
-        public async Task<List<SubjectsToView>> GetSubjectsRange(List<Subjects> subjects, string language)
+        public List<SubjectsToView> GetSubjectsRange(List<Subjects> subjects, string language)
         {
             List<SubjectsToView> toViews = new List<SubjectsToView>();
-            foreach(var item in subjects)
-                toViews.Add(await GetSubjects(item.ID, language));
-            return toViews; 
+            foreach (var item in subjects)
+                toViews.Add(GetSubjects(item.ID, language));
+            return toViews;
         }
 
-        public async Task<TopicsToView> GetTopics(int id, string language)
+        public TopicsToView GetTopics(int id, string language)
         {
-            var data = await database.Table<TopicTranslate>().FirstOrDefaultAsync(s => s.LanguageID.Equals(language) && s.TopicID == id);
-            var topic = await database.Table<Topics>().FirstOrDefaultAsync(s => s.ID == id);
+            var data = database.Table<TopicTranslate>().FirstOrDefault(s => s.LanguageID.Equals(language) && s.TopicID == id);
+            var topic = database.Table<Topics>().FirstOrDefault(s => s.ID == id);
             if (data == null)
                 return new TopicsToView(topic);
             return new TopicsToView(topic, data);
         }
-        public async Task<List<TopicsToView>> GetTopicsRange(List<Topics> subjects, string language)
+        public List<TopicsToView> GetTopicsRange(List<Topics> topics, string language)
         {
             List<TopicsToView> toViews = new List<TopicsToView>();
-            foreach (var item in subjects)
-                toViews.Add(await GetTopics(item.ID, language));
+            foreach (var item in topics)
+                toViews.Add(GetTopics(item.ID, language));
             return toViews;
         }
 
-        public async Task<QuestionsToView> GetQuestions(int id, string language)
+        public QuestionsToView GetQuestions(int id, string language)
         {
-            var data = await database.Table<QuestionTranslate>().FirstOrDefaultAsync(s => s.LanguageID.Equals(language) && s.QuestionID == id);
-            var question = await database.Table<Questions>().FirstOrDefaultAsync(s => s.ID == id);
+            var data = database.Table<QuestionTranslate>().FirstOrDefault(s => s.LanguageID.Equals(language) && s.QuestionID == id);
+            var question = database.Table<Questions>().FirstOrDefault(s => s.ID == id);
             if (data == null)
                 return new QuestionsToView(question);
             return new QuestionsToView(question, data);
         }
-        public async Task<List<QuestionsToView>> GetQuestionsRange(List<Questions> subjects, string language)
+        public List<QuestionsToView> GetQuestionsRange(List<Questions> questions, string language)
         {
             List<QuestionsToView> toViews = new List<QuestionsToView>();
-            foreach (var item in subjects)
-                toViews.Add(await GetQuestions(item.ID, language));
+            foreach (var item in questions)
+                toViews.Add(GetQuestions(item.ID, language));
             return toViews;
         }
     }
