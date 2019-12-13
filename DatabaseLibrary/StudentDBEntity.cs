@@ -80,7 +80,7 @@ namespace DatabaseLibrary
                 return new QuestionsToView(question);
             return new QuestionsToView(question, data);
         }
-        public async Task<List<QuestionsToView>> GetQuestionsRange(List<QuestionsToView> subjects, string language)
+        public async Task<List<QuestionsToView>> GetQuestionsRange(List<Questions> subjects, string language)
         {
             List<QuestionsToView> toViews = new List<QuestionsToView>();
             foreach (var item in subjects)
