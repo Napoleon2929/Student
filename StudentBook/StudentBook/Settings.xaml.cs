@@ -12,8 +12,7 @@ namespace StudentBook
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Settings : ContentPage
     {
-        private Parametrs parametrs;
-        private IParams iParams = DependencyService.Get<IParams>();
+        //private Parametrs parametrs;
         public Settings()
         {
             InitializeComponent();
@@ -23,18 +22,16 @@ namespace StudentBook
             Languages.Text = Resx.AppResources.Languages;
             CountOfQuestions.Text = Resx.AppResources.CountOfQuestions;
 
-            parametrs = iParams.GetParametrs();
-            Sounds.IsToggled = parametrs.Sounds;
-            Notices.IsToggled = parametrs.Notices;
+            Sounds.IsToggled = Singleton.Parametrs.Sounds;
+            Notices.IsToggled = Singleton.Parametrs.Notices;
             Disappearing += Settings_Disappearing;
         }
 
         private void Settings_Disappearing(object sender, EventArgs e)
         {
-            parametrs.Sounds = Sounds.IsToggled;
-            parametrs.Notices = Notices.IsToggled;
-            iParams.SetParametrs(parametrs);
-
+            Singleton.Parametrs.Sounds = Sounds.IsToggled;
+            Singleton.Parametrs.Notices = Notices.IsToggled;
+            Parametrs.SetParametrs(Singleton.Parametrs);
         }
 
         private async void SelectSubject(object sender, EventArgs e)

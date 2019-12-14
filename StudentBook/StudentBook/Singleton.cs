@@ -7,12 +7,12 @@ namespace StudentBook
 {
     static class Singleton
     {
-        static public Parametrs parametrs;
-        static public Quiz quiz;
+        static public Parametrs Parametrs;
+        static public Quiz Quiz;
         static Singleton()
         {
-            parametrs = new Parametrs();
-            quiz = new Quiz();
+            Parametrs = Parametrs.GetParametrs();
+            Quiz = new Quiz();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DatabaseLibrary;
+using DatabaseLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,15 +14,28 @@ namespace StudentBook
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Subjects : ContentPage
     {
+        private StudentDBEntity studentDB = new StudentDBEntity("task.db");
+        private List<TopicsToView> items;
+        private List<Switch> switches;
         public Subjects()
         {
             InitializeComponent();
-
-            for (var i = 0; i < 15; i++)
+            Disappearing += Subjects_Disappearing;
+            switches = new List<Switch>();
+            items = studentDB.GetTopicsRange(studentDB.GetTopicsTable(), Singleton.Parametrs.Language);
+            var chosen = Singleton.Parametrs.TopicsFilter;
+            for (var i = 0; i < items.Count; i++)
             {
                 SubjectsGrid.RowDefinitions.Add(new RowDefinition());
-                var switchButton = new Switch() { ClassId = $"c{i}" };
-                var text = new Button() { Text = "Subject" + i.ToString(),BackgroundColor = Color.Transparent, FontSize = 40, TextColor = Color.White };
+                var switchButton = new Switch() { ClassId = $"{i}" };
+                foreach(var choice in chosen)
+                {
+                    if (choice.ID == items[i].ID)
+                        switchButton.IsToggled = true;
+                }
+                switches.Add(switchButton);
+                var text = new Button() { Text = $"{items[i].Name}",BackgroundColor = Color.Transparent, FontSize = 40, TextColor = Color.White };
+                text.Clicked += Text_Clicked;
                 SubjectsGrid.Children.Add(text);
                 SubjectsGrid.Children.Add(switchButton);
                 Grid.SetColumn(text, 0);
@@ -28,6 +43,27 @@ namespace StudentBook
                 Grid.SetRow(text, i);
                 Grid.SetRow(switchButton, i);
             }
+
         }
+
+        private void Subjects_Disappearing(object sender, EventArgs e)
+        {
+            List<TopicsToView> views = new List<TopicsToView>();
+            foreach(var check in switches)
+            {
+                if (check.IsToggled)
+                    views.Add(items[int.Parse(check.ClassId)]);
+            }
+            Singleton.Parametrs.TopicsFilter = views;
+            Parametrs.SetParametrs(Singleton.Parametrs);
+        }
+
+        private void Text_Clicked(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            int position = Grid.GetRow(button);
+            switches[position].IsToggled = !switches[position].IsToggled;
+        }
+
     }
 }

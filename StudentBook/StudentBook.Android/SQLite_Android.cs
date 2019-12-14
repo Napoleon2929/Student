@@ -103,7 +103,7 @@ namespace StudentBook.Droid
         //should show warnings in any case, but don't beat me
         private void WarningWindows()
         {
-            Toast.MakeText(MainActivity.Instance, "Please check your internet connection", ToastLength.Long).Show();
+            //Toast.MakeText(MainActivity.Instance, "Please check your internet connection", ToastLength.Long).Show();
             //Task task = new Task(() => Toast.MakeText(MainActivity.Instance, "Please check your internet connection", ToastLength.Long).Show());
             if (!CanWithoutUpdate)
             {

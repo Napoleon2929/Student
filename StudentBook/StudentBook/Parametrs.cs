@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using DatabaseLibrary;
 using DatabaseLibrary.Models;
+using Xamarin.Forms;
 
 namespace StudentBook
 {
     public class Parametrs
     {
         private StudentDBEntity studentDB = new StudentDBEntity("task.db");
+        private static IParams iParams = DependencyService.Get<IParams>();
         public bool Sounds { get; set; }
         public bool Notices { get; set; }
         public string Language { get; set; }
@@ -35,6 +37,14 @@ namespace StudentBook
             Language = language;
             Count = count;
             TopicsFilter = topics;
+        }
+        public static Parametrs GetParametrs() 
+        {
+            return iParams.GetParametrs();
+        }
+        public static void SetParametrs(Parametrs parametrs)
+        {
+            iParams.SetParametrs(parametrs);
         }
     }
 }

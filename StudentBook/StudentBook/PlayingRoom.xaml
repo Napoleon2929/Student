@@ -28,8 +28,8 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <Label Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Start" FontSize="50" Text="10"></Label>
-            <Label Grid.Column="1" Grid.Row="0" HorizontalTextAlignment="Start" FontSize="50" Text="10/10"></Label>
+            <Label x:Name="Number" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Start" FontSize="50" Text="10"></Label>
+            <Label x:Name="Correct" Grid.Column="1" Grid.Row="0" HorizontalTextAlignment="Start" FontSize="50" Text="10/10"></Label>
             <ScrollView Margin="10,-60,10,80" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2">
                 <StackLayout BackgroundColor="Orange">
                     <Label x:Name="TaskText" FontSize="35" TextColor="Black" Text="Questions"></Label>
@@ -44,7 +44,7 @@
                 </Grid>
             </ScrollView>
            
-            <Button Margin="30,30,30,20" Text="Entered" Grid.ColumnSpan="2" Grid.Row="4" Style="{StaticResource Key=ButtonsStyle}"></Button>
+            <Button Clicked="Answer_Clicked" Margin="30,30,30,20" Text="Entered" Grid.ColumnSpan="2" Grid.Row="4" Style="{StaticResource Key=ButtonsStyle}"></Button>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

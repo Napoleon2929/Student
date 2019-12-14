@@ -37,7 +37,8 @@ namespace StudentBook.Droid
             }
             using (StreamReader reader = new StreamReader(File.Open(filename, FileMode.Open, FileAccess.Read)))
             {
-                return JsonConvert.DeserializeObject<Parametrs>(reader.ReadToEnd());
+                var check = reader.ReadToEnd();
+                return JsonConvert.DeserializeObject<Parametrs>(check);
             }
         }
 
