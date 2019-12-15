@@ -52,30 +52,35 @@ namespace StudentBook
             SelectQuestions();
             await Navigation.PushModalAsync(new PlayingRoom());
         }
-        private void SelectQuestions()
+        private async void SelectQuestions()
         {
-
-            Singleton.Quiz = new Quiz(Singleton.Parametrs.Count);
             int count = Singleton.Parametrs.Count;
-            var questions = studentDB.GetQuestionsTable();
+            Singleton.Quiz = new Quiz(count);
+            List<QuestionsToView> questionsToViews = studentDB.GetQuestionsRange(studentDB.GetQuestionsTable(), Singleton.Parametrs.Language);
+            List<QuestionsToView> questions = new List<QuestionsToView>();
+            for (var i = 0; i < count; i++)
+            {
+                questions.AddRange(questionsToViews.Where(q => q.TopicID == Singleton.Parametrs.TopicsFilter[i].ID));
+            }
+            questionsToViews = null;
+            if (questions.Count == 0)
+            {
+                await DisplayAlert("Warning!", "Don't have questions for your filters", "OK!");
+                return;
+            }
             if (questions.Count <= count)
             {
-                Singleton.Quiz = new Quiz(studentDB.GetQuestionsRange(questions, Singleton.Parametrs.Language));
-                return;
+                Singleton.Quiz = new Quiz(questions);
             }
             List<QuestionsToView> pairs = new List<QuestionsToView>();
             Random random = new Random();
             for (var i = 0; i < count; i++)
             {
-                int index = random.Next() % Singleton.Parametrs.TopicsFilter.Count;
-                var topic = Singleton.Parametrs.TopicsFilter[index];
-                var list = questions.Where(q => q.TopicID == topic.ID).ToList();
-                var toView = studentDB.GetQuestionsRange(list, Singleton.Parametrs.Language);
-                var newindex = random.Next() % toView.Count;
+                var index = random.Next() % questions.Count;
                 bool isUnique = true;
                 foreach (var item in pairs)
                 {
-                    if (item.ID == toView[newindex].ID)
+                    if (item.ID == questions[index].ID)
                     {
                         isUnique = false;
                         break;
@@ -86,10 +91,9 @@ namespace StudentBook
                     i--;
                     continue;
                 }
-                pairs.Add(toView[newindex]);
+                pairs.Add(questions[index]);
             }
             Singleton.Quiz = new Quiz(pairs);
-            //return pairs.Count;
         }
         protected override bool OnBackButtonPressed()
         {
