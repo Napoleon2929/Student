@@ -49,16 +49,16 @@ namespace StudentBook
         }
         private async void Play_Clicked(object sender, EventArgs e)
         {
-            SelectQuestions();
-            await Navigation.PushModalAsync(new PlayingRoom());
+            if(await SelectQuestions())
+                await Navigation.PushModalAsync(new PlayingRoom());
         }
-        private async void SelectQuestions()
+        private async Task<bool> SelectQuestions()
         {
             int count = Singleton.Parametrs.Count;
             Singleton.Quiz = new Quiz(count);
             List<QuestionsToView> questionsToViews = studentDB.GetQuestionsRange(studentDB.GetQuestionsTable(), Singleton.Parametrs.Language);
             List<QuestionsToView> questions = new List<QuestionsToView>();
-            for (var i = 0; i < count; i++)
+            for (var i = 0; i < Singleton.Parametrs.TopicsFilter.Count; i++)
             {
                 questions.AddRange(questionsToViews.Where(q => q.TopicID == Singleton.Parametrs.TopicsFilter[i].ID));
             }
@@ -66,11 +66,12 @@ namespace StudentBook
             if (questions.Count == 0)
             {
                 await DisplayAlert("Warning!", "Don't have questions for your filters", "OK!");
-                return;
+                return false;
             }
             if (questions.Count <= count)
             {
                 Singleton.Quiz = new Quiz(questions);
+                return true;
             }
             List<QuestionsToView> pairs = new List<QuestionsToView>();
             Random random = new Random();
@@ -94,6 +95,7 @@ namespace StudentBook
                 pairs.Add(questions[index]);
             }
             Singleton.Quiz = new Quiz(pairs);
+            return true;
         }
         protected override bool OnBackButtonPressed()
         {

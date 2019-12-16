@@ -23,6 +23,10 @@ namespace StudentBook
             Notices = false;
             Language = "en";
             Count = 5;
+            TopicsFilter = new List<TopicsToView>();//= studentDB.GetTopicsRange(studentDB.GetTopicsTable(), Language);
+        }
+        public void SetDefaultFilter()
+        {
             TopicsFilter = studentDB.GetTopicsRange(studentDB.GetTopicsTable(), Language);
         }
         public Parametrs(bool sounds, bool notices, string language, int count, List<TopicsToView> topics)
