@@ -21,7 +21,6 @@ namespace StudentBook
         public MainPage()
         {
             InitializeComponent();
-            //GetLanguages();
             PlayButton.Text = Resx.AppResources.PlayButton;
         }
         public async void GetLanguages()
@@ -44,12 +43,14 @@ namespace StudentBook
         }
         private async void Settings_Clicked(object sender, EventArgs e)
         {
-
+            settingsButton.IsEnabled = false;
             await Navigation.PushModalAsync(new Settings());
+            settingsButton.IsEnabled = true;
         }
         private async void Play_Clicked(object sender, EventArgs e)
         {
-            if(await SelectQuestions())
+            PlayButton.IsEnabled = false;
+            if (await SelectQuestions())
                 await Navigation.PushModalAsync(new PlayingRoom());
         }
         private async Task<bool> SelectQuestions()

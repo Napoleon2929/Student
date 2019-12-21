@@ -20,7 +20,6 @@ namespace StudentBook
             var table = studentDB.GetLanguagesTable();
             for (var i = 0; i < table.Count; i++)
             {
-                LanguagesGrid.RowDefinitions.Add(new RowDefinition());
                 var radioButton = new Button() {
                     ClassId = $"{table[i].ID}",
                     Text = $"{table[i].Name}",
@@ -28,13 +27,15 @@ namespace StudentBook
                     BackgroundColor = Color.Transparent,
                     FontSize = 40,
                     TextColor = Color.White,
-                    CornerRadius = 30 };
+                    BorderColor = Color.Black,
+                    Margin = new Thickness(0,5,0,5),
+                    BorderWidth = 1};
                 if (table[i].ID == Singleton.Parametrs.Language)
-                    radioButton.BackgroundColor = Color.Red;
+                    radioButton.TextColor = Color.Orange;
                 radioButton.Clicked += RadioButton_Clicked;
                 LanguagesGrid.Children.Add(radioButton);
-                Grid.SetColumn(radioButton, 0);
-                Grid.SetRow(radioButton, i);
+                //Grid.SetColumn(radioButton, 0);
+                //Grid.SetRow(radioButton, i);
             }
         }
 

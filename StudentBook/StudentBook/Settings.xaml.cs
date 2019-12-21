@@ -36,12 +36,16 @@ namespace StudentBook
 
         private async void SelectSubject(object sender, EventArgs e)
         {
+            Subjects.IsEnabled = false;
             await Navigation.PushModalAsync(new Subjects());
+            Subjects.IsEnabled = true;
         }
 
         private async void SelectLanguage(object sender, EventArgs e)
         {
+            Languages.IsEnabled = false;
             await Navigation.PushModalAsync(new Languages());
+            Languages.IsEnabled = true;
         }
     }
 }

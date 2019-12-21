@@ -25,7 +25,6 @@
             <Image Margin="10,10,10,0" Source="logo.png" Grid.ColumnSpan="4"></Image>
 
             <Image Margin="10,10,10,0" Grid.Column="0" Grid.Row="1" Source="sound.png"></Image>
-
             <Label x:Name="SoundEffects" Margin="10,10,10,0" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="Black"  FontSize="25"></Label>
             <Switch x:Name="Sounds" Margin="10,10,10,0" ThumbColor="White" Grid.Row="1" OnColor="#fea201" Grid.Column="3"></Switch>
 
@@ -33,20 +32,14 @@
             <Label x:Name="Notice" Margin="10,10,100,0" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" VerticalOptions="Center" TextColor="Black"  FontSize="25"></Label>
             <Switch x:Name="Notices" Margin="10,10,10,0" ThumbColor="White" Grid.Row="2" OnColor="#fea201" Grid.Column="3"></Switch>
 
-            <Button Clicked="SelectSubject" BackgroundColor="Transparent"  Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="3"></Button>
             <Image Margin="10,10,10,0" Grid.Column="0" Grid.Row="3" Source="subject.png"></Image>
-            <Label x:Name="Subjects" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="Black"  FontSize="25"></Label>
-            <Label Grid.Column="3" Grid.Row="3" Text=">" FontSize="70" HorizontalOptions="End" Margin="0,0,20,0" ></Label>
-
-            <Button Clicked="SelectLanguage" BackgroundColor="Transparent" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="4"></Button>
+            <Button Margin="10,0,0,0" HorizontalOptions="Start" Clicked="SelectSubject" BackgroundColor="Transparent" x:Name="Subjects" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" VerticalOptions="Center" TextColor="Black"  FontSize="25"></Button>
+           
             <Image Margin="10,10,10,0" Grid.Column="0" Grid.Row="4" Source="flag.png"></Image>
-            <Label x:Name="Languages" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="Black"  FontSize="25"></Label>
-            <Label Grid.Column="3" Grid.Row="4" Text=">" FontSize="70" HorizontalOptions="End" Margin="0,0,20,0" ></Label>
+            <Button Margin="10,0,0,0" HorizontalOptions="Start" Clicked="SelectLanguage" BackgroundColor="Transparent" x:Name="Languages" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" VerticalOptions="Center" TextColor="Black"  FontSize="25"></Button>
 
-            <Button BackgroundColor="Transparent" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="5"></Button>
             <Image Margin="10,10,10,0" Grid.Column="0" Grid.Row="5" Source="timer.png"></Image>
-            <Label  x:Name="CountOfQuestions" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="Black"  FontSize="25"></Label>
-            <Label Grid.Column="3" Grid.Row="5" Text=">" FontSize="70" HorizontalOptions="End" Margin="0,0,20,0" ></Label>
+            <Button Margin="10,0,0,0" HorizontalOptions="Start" BackgroundColor="Transparent" x:Name="CountOfQuestions" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" VerticalOptions="Center" TextColor="Black"  FontSize="25"></Button>
 
         </Grid>
     </ContentPage.Content>

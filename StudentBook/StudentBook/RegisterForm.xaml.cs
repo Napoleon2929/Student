@@ -24,6 +24,7 @@ namespace StudentBook
 
         private async void Login_Clicked(object sender, EventArgs e)
         {
+            SignInButton.IsEnabled = false;
             await Navigation.PushModalAsync(new MainPage());
         }
     }

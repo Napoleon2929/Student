@@ -27,14 +27,14 @@ namespace StudentBook
             for (var i = 0; i < items.Count; i++)
             {
                 SubjectsGrid.RowDefinitions.Add(new RowDefinition());
-                var switchButton = new Switch() { ClassId = $"{i}" };
+                var switchButton = new Switch() { ClassId = $"{i}", ThumbColor= Color.White, OnColor = Color.Orange };
                 foreach(var choice in chosen)
                 {
                     if (choice.ID == items[i].ID)
                         switchButton.IsToggled = true;
                 }
                 switches.Add(switchButton);
-                var text = new Button() { Text = $"{items[i].Name}",BackgroundColor = Color.Transparent, FontSize = 40, TextColor = Color.White };
+                var text = new Button() { Text = $"{items[i].Name}",BackgroundColor = Color.Transparent, FontSize = 20, HorizontalOptions = LayoutOptions.Start,  TextColor = Color.White };
                 text.Clicked += Text_Clicked;
                 SubjectsGrid.Children.Add(text);
                 SubjectsGrid.Children.Add(switchButton);
@@ -42,6 +42,7 @@ namespace StudentBook
                 Grid.SetColumn(switchButton, 1);
                 Grid.SetRow(text, i);
                 Grid.SetRow(switchButton, i);
+                SubjectStack.Children.Add(SubjectsGrid);
             }
 
         }

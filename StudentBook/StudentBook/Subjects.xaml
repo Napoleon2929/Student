@@ -8,8 +8,14 @@
              BackgroundColor="ForestGreen">
     <ContentPage.Content>
         <ScrollView>
-            <Grid x:Name="SubjectsGrid">
-            </Grid>
+            <StackLayout x:Name="SubjectStack">
+                <Grid x:Name="SubjectsGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

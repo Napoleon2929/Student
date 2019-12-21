@@ -8,8 +8,8 @@
              BackgroundColor="ForestGreen">
     <ContentPage.Content>
         <ScrollView>
-            <Grid x:Name="LanguagesGrid">
-            </Grid>
+            <StackLayout x:Name="LanguagesGrid">
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
