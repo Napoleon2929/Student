@@ -25,7 +25,7 @@ namespace StudentBook
                     Text = $"{table[i].Name}",
                     HeightRequest = 50,
                     BackgroundColor = Color.Transparent,
-                    FontSize = 40,
+                    FontSize = Device.GetNamedSize(NamedSize.Medium,typeof(Label)),
                     TextColor = Color.White,
                     BorderColor = Color.Black,
                     Margin = new Thickness(0,5,0,5),
