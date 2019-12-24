@@ -5,14 +5,14 @@ using Xamarin.Forms;
 using StudentBook.Droid;
 using DatabaseLibrary;
 using System.Net.Http;
-using System.Threading.Tasks;
 using Java.Net;
 using System.Net;
 using Android.App;
 using System.Threading;
-using Java.Lang;
+//using Java.Lang;
 using Android.Widget;
 using Android.OS;
+using System.Threading.Tasks;
 
 [assembly: Dependency(typeof(SQLite_Android))]
 namespace StudentBook.Droid
@@ -23,19 +23,26 @@ namespace StudentBook.Droid
         private readonly HttpClient httpClient;
         private readonly string defaultLink = @"http://v33649w1.beget.tech/";
         private readonly string versionName = "version.txt";
+        private string versionPath;
+        //private string databaseName;
+        private string databasePath;
         private bool CanWithoutUpdate = true;
+
+        public bool IsCorrect { get; set; }
         public SQLite_Android()
         {
             //set header User-agent for download
             httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0");
+            versionPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            versionPath = Path.Combine(versionPath, versionName);
+            IsCorrect = true;
         }
         public string GetDatabasePath(string sqliteDatabaseName)
         {
             //get personal folder (close folder for documents, which user shouldn't see)
-            string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            var databasePath = Path.Combine(documentsPath, sqliteDatabaseName);
-            var versionPath = Path.Combine(documentsPath, versionName);
+            databasePath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            databasePath = Path.Combine(databasePath, sqliteDatabaseName);
             //if can not find database and version file
             if (!File.Exists(databasePath) || !File.Exists(versionPath))
             {
@@ -44,7 +51,7 @@ namespace StudentBook.Droid
                 DownloadFile(versionName, versionPath);
                 //CanWithoutUpdate = true;
             }
-            //in onther case compare exist files with files from internet 
+            //in other case compare exist files with files from internet 
             else
             {
                 RewriteFile(versionName, versionPath, sqliteDatabaseName, databasePath);
@@ -77,7 +84,7 @@ namespace StudentBook.Droid
                 //if launch without internet
                 WarningWindows();
                 if (!CanWithoutUpdate)
-                    System.Environment.Exit(0);
+                    CreateEmptyDB();
                 return null;
             }
         }
@@ -97,8 +104,18 @@ namespace StudentBook.Droid
                 //if launch without internet
                 WarningWindows();
                 if (!CanWithoutUpdate)
-                    System.Environment.Exit(0);
+                    CreateEmptyDB();
             }
+        }
+        private void CreateEmptyDB()
+        {
+            Context context = Android.App.Application.Context;
+            var dbAssetStream = context.Assets.Open("empty.db");
+            var file = File.Create(databasePath);
+            dbAssetStream.CopyTo(file);
+            file.Close();
+            file = File.Create(versionPath);
+            file.Close();
         }
         //should show warnings in any case, but don't beat me
         private void WarningWindows()
@@ -107,8 +124,11 @@ namespace StudentBook.Droid
             //Task task = new Task(() => Toast.MakeText(MainActivity.Instance, "Please check your internet connection", ToastLength.Long).Show());
             if (!CanWithoutUpdate)
             {
-                Task.Delay(2000).Wait();
-               // task.Start();
+                IsCorrect = false;
+                Toast.MakeText(MainActivity.Instance, "Please check your internet connection", ToastLength.Long).Show();
+                //Thread.Sleep(2000);
+                //Task.Delay(5000).Wait();
+                // task.Start();
             }
             //MainActivity.Instance.RunOnUiThread(()=> );
         }

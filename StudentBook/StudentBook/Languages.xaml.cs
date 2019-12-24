@@ -13,11 +13,11 @@ namespace StudentBook
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Languages : ContentPage
     {
-        StudentDBEntity studentDB = new StudentDBEntity("task.db");
+        //StudentDBEntity studentDB = new StudentDBEntity("task.db");
         public Languages()
         {
             InitializeComponent();
-            var table = studentDB.GetLanguagesTable();
+            var table = Singleton.StudentDB.GetLanguagesTable();
             for (var i = 0; i < table.Count; i++)
             {
                 var radioButton = new Button() {

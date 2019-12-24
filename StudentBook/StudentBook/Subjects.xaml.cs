@@ -14,7 +14,7 @@ namespace StudentBook
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Subjects : ContentPage
     {
-        private StudentDBEntity studentDB = new StudentDBEntity("task.db");
+        //private StudentDBEntity studentDB = new StudentDBEntity("task.db");
         private List<TopicsToView> items;
         private List<Switch> switches;
         public Subjects()
@@ -22,7 +22,7 @@ namespace StudentBook
             InitializeComponent();
             Disappearing += Subjects_Disappearing;
             switches = new List<Switch>();
-            items = studentDB.GetTopicsRange(studentDB.GetTopicsTable(), Singleton.Parametrs.Language);
+            items = Singleton.StudentDB.GetTopicsRange(Singleton.StudentDB.GetTopicsTable(), Singleton.Parametrs.Language);
             var chosen = Singleton.Parametrs.TopicsFilter;
             for (var i = 0; i < items.Count; i++)
             {

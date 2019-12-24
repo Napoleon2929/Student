@@ -10,10 +10,13 @@ namespace DatabaseLibrary
 {
     public class StudentDBEntity
     {
-        public SQLiteConnection database;
+        private SQLiteConnection database;
+        public bool IsCorrect { get; set; }
         public StudentDBEntity(string connection)
         {
-            string databasePath = DependencyService.Get<ISQLite>().GetDatabasePath(connection);
+            var sqlite = DependencyService.Get<ISQLite>();
+            string databasePath = sqlite.GetDatabasePath(connection);
+            IsCorrect = sqlite.IsCorrect;
             database = new SQLiteConnection(databasePath);
         }
         //get tables
@@ -37,6 +40,7 @@ namespace DatabaseLibrary
         {
             return database.Table<QuestionTranslate>().ToList();
         }
+
         // get translate
         public SubjectsToView GetSubjects(int id, string language)
         {

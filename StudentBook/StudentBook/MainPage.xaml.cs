@@ -17,7 +17,8 @@ namespace StudentBook
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        StudentDBEntity studentDB = new StudentDBEntity("task.db");
+        //StudentDBEntity studentDB = new StudentDBEntity("task.db");
+        private Random random = new Random();
         public MainPage()
         {
             InitializeComponent();
@@ -25,11 +26,10 @@ namespace StudentBook
         }
         public async void GetLanguages()
         {
-            StudentDBEntity studentDB = new StudentDBEntity("task.db");
             try
             {
 
-                var table = studentDB.GetLanguagesTable();
+                var table = Singleton.StudentDB.GetLanguagesTable();
                 var result = "";
                 foreach (var str in table)
                     result += $"{str.ID}\n";
@@ -52,12 +52,14 @@ namespace StudentBook
             PlayButton.IsEnabled = false;
             if (await SelectQuestions())
                 await Navigation.PushModalAsync(new PlayingRoom());
+            else
+                PlayButton.IsEnabled = true;
         }
         private async Task<bool> SelectQuestions()
         {
             int count = Singleton.Parametrs.Count;
             Singleton.Quiz = new Quiz(count);
-            List<QuestionsToView> questionsToViews = studentDB.GetQuestionsRange(studentDB.GetQuestionsTable(), Singleton.Parametrs.Language);
+            List<QuestionsToView> questionsToViews = Singleton.StudentDB.GetQuestionsRange(Singleton.StudentDB.GetQuestionsTable(), Singleton.Parametrs.Language);
             List<QuestionsToView> questions = new List<QuestionsToView>();
             for (var i = 0; i < Singleton.Parametrs.TopicsFilter.Count; i++)
             {
@@ -75,10 +77,9 @@ namespace StudentBook
                 return true;
             }
             List<QuestionsToView> pairs = new List<QuestionsToView>();
-            Random random = new Random();
             for (var i = 0; i < count; i++)
             {
-                var index = random.Next() % questions.Count;
+                var index = random.Next(questions.Count);
                 bool isUnique = true;
                 foreach (var item in pairs)
                 {

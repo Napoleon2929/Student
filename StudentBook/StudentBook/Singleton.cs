@@ -9,8 +9,10 @@ namespace StudentBook
     {
         static public Parametrs Parametrs;
         static public Quiz Quiz;
+        static public StudentDBEntity StudentDB;
         static Singleton()
         {
+            StudentDB = new StudentDBEntity("task.db");
             Parametrs = Parametrs.GetParametrs();
             Quiz = new Quiz();
         }

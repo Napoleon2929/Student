@@ -8,5 +8,6 @@ namespace DatabaseLibrary
     public interface ISQLite
     {
         string GetDatabasePath(string sqliteDatabaseName);
+        bool IsCorrect { get; set; }
     }
 }
