@@ -60,7 +60,7 @@ namespace StudentBook
                         break;
                     }
                 }
-                //Singleton.Parametrs = Parametrs.GetParametrs();
+                Singleton.Parametrs = Parametrs.GetParametrs();
             }
         } 
         private async void Settings_Clicked(object sender, EventArgs e)
