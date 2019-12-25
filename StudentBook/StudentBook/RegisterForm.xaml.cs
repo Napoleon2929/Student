@@ -27,15 +27,15 @@ namespace StudentBook
 
         private async void Login_Clicked(object sender, EventArgs e)
         {
-            while (true)
-            {
-                if (!CrossConnectivity.Current.IsConnected)
-                {
-                    if (await DisplayAlert("Warning!", "You don't have Internet connection", "Try again", "Continue"))
-                        continue;
-                }
-                break;
-            }
+            //while (true)
+            //{
+            //    if (!CrossConnectivity.Current.IsConnected)
+            //    {
+            //        if (await DisplayAlert("Warning!", "You don't have Internet connection", "Try again", "Continue"))
+            //            continue;
+            //    }
+            //    break;
+            //}
             SignInButton.IsEnabled = false;
             await Navigation.PushAsync(new MainPage());
             //await Navigation.PushModalAsync(new MainPage());

@@ -17,12 +17,27 @@ namespace StudentBook
 
         public PlayingRoom()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            checks = new List<CheckBox>();
+            UpdateData();
+        }
+
+        private void Touch_Tapped(object sender, EventArgs e)
+        {
+            var label = sender as Label;
+            int position = Grid.GetRow(label);
+            checks[position].IsChecked = !checks[position].IsChecked;
+        }
+
+        private void UpdateData()
+        {
             questionsToView = Singleton.Quiz.Questions[Singleton.Quiz.CurrentPosition];
+            checks = new List<CheckBox>();
             Number.Text = (Singleton.Quiz.CurrentPosition + 1).ToString();
             Correct.Text = $"{Singleton.Quiz.CorrectQuestions.Count}/{Singleton.Quiz.Questions.Count}";
             TaskText.Text = questionsToView.Task;
+            QuestionsGrid.Children.Clear();
+            QuestionsGrid.RowDefinitions = new RowDefinitionCollection();
             for (var i = 0; i < questionsToView.Answers.Length; i++)
             {
                 QuestionsGrid.RowDefinitions.Add(new RowDefinition());
@@ -30,7 +45,7 @@ namespace StudentBook
                 checkbox.VerticalOptions = new LayoutOptions(LayoutAlignment.Center, false);
                 checks.Add(checkbox);
 
-                var text = new Label () { Text = questionsToView.Answers[i] };
+                var text = new Label() { Text = questionsToView.Answers[i] };
                 TapGestureRecognizer touch = new TapGestureRecognizer();
                 text.VerticalOptions = new LayoutOptions(LayoutAlignment.Center, false);
                 touch.Tapped += Touch_Tapped;
@@ -44,13 +59,6 @@ namespace StudentBook
                 Grid.SetRow(checkbox, i);
                 Grid.SetRow(text, i);
             }
-        }
-
-        private void Touch_Tapped(object sender, EventArgs e)
-        {
-            var label = sender as Label;
-            int position = Grid.GetRow(label);
-            checks[position].IsChecked = !checks[position].IsChecked;
         }
 
         private async void Answer_Clicked(object sender, EventArgs e)
@@ -70,13 +78,9 @@ namespace StudentBook
                 await Navigation.PushModalAsync(new MainPage());
             }
             else
-                await Navigation.PushModalAsync(new PlayingRoom());
-            //await DisplayAlert("result", $"{questionsToView.CheckAnswers(answers.ToArray())}\nYou have answered {answers.ToArray()}", "ok");
-        }
-
-        protected override bool OnBackButtonPressed()
-        {
-            return true;
+                UpdateData();
+                //await Navigation.PushModalAsync(new PlayingRoom());
+                //await DisplayAlert("result", $"{questionsToView.CheckAnswers(answers.ToArray())}\nYou have answered {answers.ToArray()}", "ok");
         }
     }
 }

@@ -9,7 +9,7 @@ using Java.Net;
 using System.Net;
 using Android.App;
 using System.Threading;
-//using Java.Lang;
+using Plugin.Connectivity;
 using Android.Widget;
 using Android.OS;
 using System.Threading.Tasks;
@@ -70,6 +70,17 @@ namespace StudentBook.Droid
         }
         private async Task<bool?> CheckRemoteFileAsync(string fileName, string existFilePath)
         {
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                using (var existFile = File.Open(existFilePath, FileMode.Open, FileAccess.Read))
+                {
+                    if (existFile.Length == 0)
+                        CanWithoutUpdate = false;
+                }
+                WarningWindows();
+                return null;
+            }
+
             try
             {
                 using (var response = await httpClient.GetAsync(defaultLink + fileName))
@@ -81,16 +92,25 @@ namespace StudentBook.Droid
             }
             catch (UnknownHostException)
             {
+                //check version file
+                using (var existFile = File.Open(existFilePath, FileMode.Open, FileAccess.Read))
+                {
+                    if (existFile.Length == 0)
+                        CanWithoutUpdate = false;
+                }
                 //if launch without internet
                 WarningWindows();
-                if (!CanWithoutUpdate)
-                    CreateEmptyDB();
                 return null;
             }
         }
         //get file from internet and rewrite or create file on the device
         private async void DownloadFile(string fileName, string filePath)
         {
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                WarningWindows();
+                return;
+            }
             try
             {
                 var response = await httpClient.GetAsync(defaultLink + fileName);
@@ -102,9 +122,7 @@ namespace StudentBook.Droid
             catch (UnknownHostException)
             {
                 //if launch without internet
-                WarningWindows();
-                if (!CanWithoutUpdate)
-                    CreateEmptyDB();
+                WarningWindows();                    
             }
         }
         private void CreateEmptyDB()
@@ -126,9 +144,7 @@ namespace StudentBook.Droid
             {
                 IsCorrect = false;
                 Toast.MakeText(MainActivity.Instance, "Please check your internet connection", ToastLength.Long).Show();
-                //Thread.Sleep(2000);
-                //Task.Delay(5000).Wait();
-                // task.Start();
+                CreateEmptyDB();
             }
             //MainActivity.Instance.RunOnUiThread(()=> );
         }

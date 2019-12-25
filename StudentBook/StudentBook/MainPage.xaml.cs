@@ -9,6 +9,7 @@ using DatabaseLibrary;
 using DatabaseLibrary.Models;
 using System.Net.Http;
 using System.Threading;
+using Plugin.Connectivity;
 
 namespace StudentBook
 {
@@ -29,40 +30,51 @@ namespace StudentBook
 
         private async void MainPage_Appearing(object sender, EventArgs e)
         {
-            if (Navigation.ModalStack.Count > 1)
-                await DisplayAlert("qw","Двое рабоают семеро х@@ми пашут тут\nИди работай, сука","ok");
-
-        }
-
-        //for delete
-        public async void GetLanguages()
-        {
-            try
+            if (Navigation.NavigationStack.Count > 1)
             {
-
-                var table = Singleton.StudentDB.GetLanguagesTable();
-                var result = "";
-                foreach (var str in table)
-                    result += $"{str.ID}\n";
-                await DisplayAlert("db", result, "ok");
-            }
-            catch (SQLite.SQLiteException)
+                await Navigation.PopToRootAsync();
+                await DisplayAlert("qw", "двое работают семеро хуями пашут.\n" + Navigation.NavigationStack.Count/*"Cleaning"*/, "ok");
+            } 
+            if (!Singleton.IsUpdate)
             {
-                await DisplayAlert("error", "Can not find datebase", "ok");
-                //GetLanguages();
+                Singleton.IsUpdate = true;
+                Singleton.StudentDB = new StudentDBEntity("task.db");
+                if (!Singleton.StudentDB.IsCorrect)
+                {
+                    while (true)
+                    {
+                        if (!CrossConnectivity.Current.IsConnected)
+                        {
+                            if (await DisplayAlert("Warning!", "Как выебываться так сразу вылазят ленивые сраки, а как работать - в яму зарываются"/*"You don't have Internet connection for get database"*/, "Try again", "Exit   "))
+                                continue;
+                            else
+                                Environment.Exit(1);
+                        }
+                        else
+                        {
+                            Singleton.StudentDB = new StudentDBEntity("task.db");
+                            
+                            //Singleton.Parametrs.SetDefaultFilter();
+                        }
+                            
+                        break;
+                    }
+                }
+                //Singleton.Parametrs = Parametrs.GetParametrs();
             }
-        }
+        } 
         private async void Settings_Clicked(object sender, EventArgs e)
         {
             settingsButton.IsEnabled = false;
-            await Navigation.PushModalAsync(new Settings());
+            await Navigation.PushAsync(new Settings());
+
             settingsButton.IsEnabled = true;
         }
         private async void Play_Clicked(object sender, EventArgs e)
         {
             PlayButton.IsEnabled = false;
             if (await SelectQuestions())
-                await Navigation.PushModalAsync(new PlayingRoom());
+                await Navigation.PushAsync(new PlayingRoom());
             else
                 PlayButton.IsEnabled = true;
         }
@@ -79,7 +91,7 @@ namespace StudentBook
             questionsToViews = null;
             if (questions.Count == 0)
             {
-                await DisplayAlert("Warning!", "Don't have questions for your filters", "OK!");
+                await DisplayAlert("Warning!", "Иди работать, сука. Или Сурто за бегунки сдавай"/*"Don't have questions for your filters"*/, "OK!");
                 return false;
             }
             if (questions.Count <= count)
@@ -110,9 +122,5 @@ namespace StudentBook
             Singleton.Quiz = new Quiz(pairs);
             return true;
         }
-        //protected override bool OnBackButtonPressed()
-        //{
-        //    return true;
-        //}
     }
 }

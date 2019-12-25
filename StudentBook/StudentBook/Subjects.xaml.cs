@@ -19,6 +19,7 @@ namespace StudentBook
         private List<Switch> switches;
         public Subjects()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             Disappearing += Subjects_Disappearing;
             switches = new List<Switch>();
@@ -47,7 +48,7 @@ namespace StudentBook
 
         }
 
-        private void Subjects_Disappearing(object sender, EventArgs e)
+        private async void Subjects_Disappearing(object sender, EventArgs e)
         {
             List<TopicsToView> views = new List<TopicsToView>();
             foreach(var check in switches)
@@ -57,6 +58,7 @@ namespace StudentBook
             }
             Singleton.Parametrs.TopicsFilter = views;
             Parametrs.SetParametrs(Singleton.Parametrs);
+            await Navigation.PopAsync();
         }
 
         private void Text_Clicked(object sender, EventArgs e)

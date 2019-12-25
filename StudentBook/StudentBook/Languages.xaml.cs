@@ -16,6 +16,8 @@ namespace StudentBook
         //StudentDBEntity studentDB = new StudentDBEntity("task.db");
         public Languages()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
+            Disappearing += Languages_Disappearing;
             InitializeComponent();
             var table = Singleton.StudentDB.GetLanguagesTable();
             for (var i = 0; i < table.Count; i++)
@@ -37,6 +39,11 @@ namespace StudentBook
                 //Grid.SetColumn(radioButton, 0);
                 //Grid.SetRow(radioButton, i);
             }
+        }
+
+        private async void Languages_Disappearing(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
 
         private async void RadioButton_Clicked(object sender, EventArgs e)

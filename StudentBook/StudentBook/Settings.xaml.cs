@@ -15,6 +15,7 @@ namespace StudentBook
         //private Parametrs parametrs;
         public Settings()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             SoundEffects.Text = Resx.AppResources.SoundEffects;
             Notice.Text = Resx.AppResources.Notice;
@@ -22,11 +23,17 @@ namespace StudentBook
             Languages.Text = Resx.AppResources.Languages;
             CountOfQuestions.Text = Resx.AppResources.CountOfQuestions;
 
-            Sounds.IsToggled = Singleton.Parametrs.Sounds;
-            Notices.IsToggled = Singleton.Parametrs.Notices;
+            
+            Appearing += Settings_Appearing;
             Disappearing += Settings_Disappearing;
         }
 
+        private void Settings_Appearing(object sender, EventArgs e)
+        {
+            Singleton.Parametrs = Parametrs.GetParametrs();
+            Sounds.IsToggled = Singleton.Parametrs.Sounds;
+            Notices.IsToggled = Singleton.Parametrs.Notices;
+        }
         private void Settings_Disappearing(object sender, EventArgs e)
         {
             Singleton.Parametrs.Sounds = Sounds.IsToggled;
@@ -37,14 +44,16 @@ namespace StudentBook
         private async void SelectSubject(object sender, EventArgs e)
         {
             Subjects.IsEnabled = false;
-            await Navigation.PushModalAsync(new Subjects());
+            await Navigation.PushAsync(new Subjects());
+
             Subjects.IsEnabled = true;
         }
 
         private async void SelectLanguage(object sender, EventArgs e)
         {
             Languages.IsEnabled = false;
-            await Navigation.PushModalAsync(new Languages());
+            await Navigation.PushAsync(new Languages());
+
             Languages.IsEnabled = true;
         }
     }
