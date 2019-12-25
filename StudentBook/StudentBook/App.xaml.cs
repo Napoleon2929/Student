@@ -9,7 +9,7 @@ namespace StudentBook
         public App()
         {
             InitializeComponent();
-            MainPage = new RegisterForm();
+            MainPage = new NavigationPage(new RegisterForm());
         }
 
         protected override void OnStart()

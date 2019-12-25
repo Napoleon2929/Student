@@ -21,9 +21,20 @@ namespace StudentBook
         private Random random = new Random();
         public MainPage()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             PlayButton.Text = Resx.AppResources.PlayButton;
+            Appearing += MainPage_Appearing;
         }
+
+        private async void MainPage_Appearing(object sender, EventArgs e)
+        {
+            if (Navigation.ModalStack.Count > 1)
+                await DisplayAlert("qw","Двое рабоают семеро х@@ми пашут тут\nИди работай, сука","ok");
+
+        }
+
+        //for delete
         public async void GetLanguages()
         {
             try
@@ -99,9 +110,9 @@ namespace StudentBook
             Singleton.Quiz = new Quiz(pairs);
             return true;
         }
-        protected override bool OnBackButtonPressed()
-        {
-            return true;
-        }
+        //protected override bool OnBackButtonPressed()
+        //{
+        //    return true;
+        //}
     }
 }

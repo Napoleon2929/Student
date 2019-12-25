@@ -17,6 +17,7 @@ namespace StudentBook
     {
         public RegisterForm()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             Login.Text = Resx.AppResources.Login;
             Password.Text = Resx.AppResources.Password;
@@ -36,7 +37,13 @@ namespace StudentBook
                 break;
             }
             SignInButton.IsEnabled = false;
-            await Navigation.PushModalAsync(new MainPage());
+            await Navigation.PushAsync(new MainPage());
+            //await Navigation.PushModalAsync(new MainPage());
+        }
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            Navigation.RemovePage(this);
         }
     }
 }
