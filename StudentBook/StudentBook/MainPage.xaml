@@ -17,7 +17,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <AbsoluteLayout>
-            <ImageButton Clicked="Settings_Clicked" x:Name="settingsButton" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.99,0.01,40,40" BackgroundColor="Transparent" Source="Settings.png"></ImageButton>
+            <ImageButton Clicked="Settings_Clicked" x:Name="SettingsButton" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.99,0.01,40,40" BackgroundColor="Transparent" Source="Settings.png"></ImageButton>
             <Image Source="logo.png" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,300,100"></Image>
             <Button Clicked="Play_Clicked" x:Name="PlayButton" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.9,300,50"  Style="{StaticResource Key=ButtonsStyle}"></Button>
         </AbsoluteLayout>

@@ -41,9 +41,9 @@ namespace StudentBook
             }
         }
 
-        private async void Languages_Disappearing(object sender, EventArgs e)
+        private void Languages_Disappearing(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
+            //await Navigation.PopAsync();
         }
 
         private async void RadioButton_Clicked(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace StudentBook
             var button = sender as Button;
             Singleton.Parametrs.Language = button.ClassId;
             Parametrs.SetParametrs(Singleton.Parametrs);
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
     }
 }

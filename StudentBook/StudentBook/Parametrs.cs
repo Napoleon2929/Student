@@ -4,12 +4,13 @@ using System.Text;
 using DatabaseLibrary;
 using DatabaseLibrary.Models;
 using Xamarin.Forms;
+using SQLite;
 
 namespace StudentBook
 {
     public class Parametrs
     {
-        private StudentDBEntity studentDB = new StudentDBEntity("task.db");
+        //private StudentDBEntity studentDB = new StudentDBEntity("task.db");
         private static IParams iParams = DependencyService.Get<IParams>();
         public bool Sounds { get; set; }
         public bool Notices { get; set; }
@@ -23,11 +24,11 @@ namespace StudentBook
             Notices = false;
             Language = "en";
             Count = 5;
-            TopicsFilter = new List<TopicsToView>();//= studentDB.GetTopicsRange(studentDB.GetTopicsTable(), Language);
+            TopicsFilter = new List<TopicsToView>();
         }
         public void SetDefaultFilter()
         {
-            TopicsFilter = studentDB.GetTopicsRange(studentDB.GetTopicsTable(), Language);
+                TopicsFilter = Singleton.StudentDB.GetTopicsRange(Singleton.StudentDB.GetTopicsTable(), Language);
         }
         public Parametrs(bool sounds, bool notices, string language, int count, List<TopicsToView> topics)
         {

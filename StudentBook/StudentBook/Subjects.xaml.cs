@@ -58,7 +58,7 @@ namespace StudentBook
             }
             Singleton.Parametrs.TopicsFilter = views;
             Parametrs.SetParametrs(Singleton.Parametrs);
-            await Navigation.PopAsync();
+            //await Navigation.PopAsync();
         }
 
         private void Text_Clicked(object sender, EventArgs e)

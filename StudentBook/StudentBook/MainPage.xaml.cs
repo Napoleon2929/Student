@@ -33,8 +33,9 @@ namespace StudentBook
             if (Navigation.NavigationStack.Count > 1)
             {
                 await Navigation.PopToRootAsync();
-                await DisplayAlert("qw", "двое работают семеро хуями пашут.\n" + Navigation.NavigationStack.Count/*"Cleaning"*/, "ok");
-            } 
+                //await DisplayAlert("qw", "двое работают семеро хуями пашут.\n" + Navigation.NavigationStack.Count/*"Cleaning"*/, "ok");
+                //await DisplayAlert("qw", $"Navigation.NavigationStack.Count", "ok");
+            }
             if (!Singleton.IsUpdate)
             {
                 Singleton.IsUpdate = true;
@@ -45,38 +46,34 @@ namespace StudentBook
                     {
                         if (!CrossConnectivity.Current.IsConnected)
                         {
-                            if (await DisplayAlert("Warning!", "Как выебываться так сразу вылазят ленивые сраки, а как работать - в яму зарываются"/*"You don't have Internet connection for get database"*/, "Try again", "Exit   "))
+                            //if (await DisplayAlert("Warning!", "Как выебываться так сразу вылазят ленивые сраки, а как работать - в яму зарываются", "Try again", "Exit   "))
+                            if (await DisplayAlert("Warning!", "You don't have Internet connection for get database", "Try again", "Exit   "))
                                 continue;
                             else
                                 Environment.Exit(1);
                         }
                         else
-                        {
-                            Singleton.StudentDB = new StudentDBEntity("task.db");
-                            
-                            //Singleton.Parametrs.SetDefaultFilter();
-                        }
-                            
+                            Singleton.StudentDB = new StudentDBEntity("task.db");    
                         break;
                     }
                 }
-                Singleton.Parametrs = Parametrs.GetParametrs();
             }
         } 
         private async void Settings_Clicked(object sender, EventArgs e)
         {
-            settingsButton.IsEnabled = false;
+            SettingsButton.IsEnabled = false;
             await Navigation.PushAsync(new Settings());
 
-            settingsButton.IsEnabled = true;
+            SettingsButton.IsEnabled = true;
         }
         private async void Play_Clicked(object sender, EventArgs e)
         {
+            if(Singleton.Parametrs==null)
+                Singleton.Parametrs = Parametrs.GetParametrs();
             PlayButton.IsEnabled = false;
             if (await SelectQuestions())
                 await Navigation.PushAsync(new PlayingRoom());
-            else
-                PlayButton.IsEnabled = true;
+            PlayButton.IsEnabled = true;
         }
         private async Task<bool> SelectQuestions()
         {
@@ -91,7 +88,8 @@ namespace StudentBook
             questionsToViews = null;
             if (questions.Count == 0)
             {
-                await DisplayAlert("Warning!", "Иди работать, сука. Или Сурто за бегунки сдавай"/*"Don't have questions for your filters"*/, "OK!");
+                //await DisplayAlert("Warning!","Иди работать, сука. Или Сурто за бегунки сдавай", "OK!");
+                await DisplayAlert("Warning!", "Don't have questions for your filters", "OK!");
                 return false;
             }
             if (questions.Count <= count)

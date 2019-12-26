@@ -75,7 +75,7 @@ namespace StudentBook
             if (Singleton.Quiz.CurrentPosition == -1)
             {
                 await DisplayAlert("Message", "You have ended for all questions", "OK");
-                await Navigation.PushModalAsync(new MainPage());
+                await Navigation.PopToRootAsync();
             }
             else
                 UpdateData();
