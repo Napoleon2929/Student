@@ -63,6 +63,7 @@ namespace StudentBook
 
         private async void Answer_Clicked(object sender, EventArgs e)
         {
+            AnswerButton.IsEnabled = false;
             var check = new List<int>();
             foreach(var item in checks)
             {
@@ -70,7 +71,10 @@ namespace StudentBook
                     check.Add(int.Parse(item.ClassId));
             }
             if (check.Count == 0)
+            {
+                AnswerButton.IsEnabled = true;
                 return;
+            }
             Singleton.Quiz.Answer(questionsToView.CheckAnswers(check.ToArray()));
             if (Singleton.Quiz.CurrentPosition == -1)
             {
@@ -79,6 +83,7 @@ namespace StudentBook
             }
             else
                 UpdateData();
+            AnswerButton.IsEnabled = true;
                 //await Navigation.PushModalAsync(new PlayingRoom());
                 //await DisplayAlert("result", $"{questionsToView.CheckAnswers(answers.ToArray())}\nYou have answered {answers.ToArray()}", "ok");
         }
