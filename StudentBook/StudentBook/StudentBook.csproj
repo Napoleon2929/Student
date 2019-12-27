@@ -35,8 +35,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>AppResources.ru.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resx\AppResources.fra.Designer.cs">
-      <DependentUpon>AppResources.fra.resx</DependentUpon>
+    <Compile Update="Resx\AppResources.fr.Designer.cs">
+      <DependentUpon>AppResources.fr.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
@@ -65,7 +65,7 @@
     <EmbeddedResource Update="RegisterForm.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resx\AppResources.fra.resx">
+    <EmbeddedResource Update="Resx\AppResources.fr.resx">
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>

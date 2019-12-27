@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Globalization;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -27,13 +28,16 @@ namespace StudentBook
             PlayButton.Text = Resx.AppResources.PlayButton;
             Appearing += MainPage_Appearing;
         }
-
+        public void UpdateText()
+        {
+            PlayButton.Text = Resx.AppResources.PlayButton;
+        }
         private async void MainPage_Appearing(object sender, EventArgs e)
         {
+            UpdateText();
             if (Navigation.NavigationStack.Count > 1)
             {
                 await Navigation.PopToRootAsync();
-                //await DisplayAlert("qw", "двое работают семеро хуями пашут.\n" + Navigation.NavigationStack.Count/*"Cleaning"*/, "ok");
                 //await DisplayAlert("qw", $"Navigation.NavigationStack.Count", "ok");
             }
             if (!Singleton.IsUpdate)
@@ -46,7 +50,6 @@ namespace StudentBook
                     {
                         if (!CrossConnectivity.Current.IsConnected)
                         {
-                            //if (await DisplayAlert("Warning!", "Как выебываться так сразу вылазят ленивые сраки, а как работать - в яму зарываются", "Try again", "Exit   "))
                             if (await DisplayAlert("Warning!", "You don't have Internet connection for get database", "Try again", "Exit   "))
                                 continue;
                             else
@@ -68,8 +71,12 @@ namespace StudentBook
         }
         private async void Play_Clicked(object sender, EventArgs e)
         {
-            if(Singleton.Parametrs==null)
+            if (Singleton.Parametrs == null)
+            {
                 Singleton.Parametrs = Parametrs.GetParametrs();
+                if (Singleton.Parametrs.TopicsFilter == null)
+                    Singleton.Parametrs.SetDefaultFilter();
+            }
             PlayButton.IsEnabled = false;
             if (await SelectQuestions())
                 await Navigation.PushAsync(new PlayingRoom());
@@ -88,7 +95,6 @@ namespace StudentBook
             questionsToViews = null;
             if (questions.Count == 0)
             {
-                //await DisplayAlert("Warning!","Иди работать, сука. Или Сурто за бегунки сдавай", "OK!");
                 await DisplayAlert("Warning!", "Don't have questions for your filters", "OK!");
                 return false;
             }

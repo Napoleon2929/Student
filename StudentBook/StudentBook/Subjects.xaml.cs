@@ -48,7 +48,7 @@ namespace StudentBook
 
         }
 
-        private async void Subjects_Disappearing(object sender, EventArgs e)
+        private void Subjects_Disappearing(object sender, EventArgs e)
         {
             List<TopicsToView> views = new List<TopicsToView>();
             foreach(var check in switches)

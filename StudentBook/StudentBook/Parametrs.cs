@@ -5,6 +5,7 @@ using DatabaseLibrary;
 using DatabaseLibrary.Models;
 using Xamarin.Forms;
 using SQLite;
+using System.Globalization;
 
 namespace StudentBook
 {
@@ -22,13 +23,14 @@ namespace StudentBook
         {
             Sounds = false;
             Notices = false;
-            Language = "en";
+            Language = CultureInfo.CurrentCulture.Parent.Name;
             Count = 5;
-            TopicsFilter = new List<TopicsToView>();
+            //TopicsFilter = new List<TopicsToView>();
         }
         public void SetDefaultFilter()
         {
-                TopicsFilter = Singleton.StudentDB.GetTopicsRange(Singleton.StudentDB.GetTopicsTable(), Language);
+            TopicsFilter = new List<TopicsToView>();
+            TopicsFilter = Singleton.StudentDB.GetTopicsRange(Singleton.StudentDB.GetTopicsTable(), Language);
         }
         public Parametrs(bool sounds, bool notices, string language, int count, List<TopicsToView> topics)
         {

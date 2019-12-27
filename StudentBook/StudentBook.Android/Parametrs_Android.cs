@@ -32,7 +32,7 @@ namespace StudentBook.Droid
             if (!File.Exists(filename))
             {
                 var param = new Parametrs();
-                param.SetDefaultFilter();
+                //param.SetDefaultFilter();
                 SetParametrs(param);
                 return param;
             }

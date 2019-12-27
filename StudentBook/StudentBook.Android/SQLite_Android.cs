@@ -146,6 +146,9 @@ namespace StudentBook.Droid
                 Toast.MakeText(MainActivity.Instance, "Please check your internet connection", ToastLength.Long).Show();
                 CreateEmptyDB();
             }
+            else
+                Toast.MakeText(MainActivity.Instance, "Can not update database", ToastLength.Long).Show();
+
             //MainActivity.Instance.RunOnUiThread(()=> );
         }
     }

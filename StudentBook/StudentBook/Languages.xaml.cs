@@ -50,6 +50,7 @@ namespace StudentBook
         {
             var button = sender as Button;
             Singleton.Parametrs.Language = button.ClassId;
+            Resx.AppResources.Culture = new System.Globalization.CultureInfo(Singleton.Parametrs.Language);
             Parametrs.SetParametrs(Singleton.Parametrs);
             await Navigation.PopAsync();
         }
