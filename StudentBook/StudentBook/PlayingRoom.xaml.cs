@@ -14,19 +14,12 @@ namespace StudentBook
     {
         private QuestionsToView questionsToView;
         private List<CheckBox> checks;
-
+        private bool isSingle;
         public PlayingRoom()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             UpdateData();
-        }
-
-        private void Touch_Tapped(object sender, EventArgs e)
-        {
-            var label = sender as Label;
-            int position = Grid.GetRow(label);
-            checks[position].IsChecked = !checks[position].IsChecked;
         }
 
         private void UpdateData()
@@ -38,10 +31,12 @@ namespace StudentBook
             TaskText.Text = questionsToView.Task;
             QuestionsGrid.Children.Clear();
             QuestionsGrid.RowDefinitions = new RowDefinitionCollection();
+            isSingle = questionsToView.CorrectAnswer.Length == 1;
             for (var i = 0; i < questionsToView.Answers.Length; i++)
             {
                 QuestionsGrid.RowDefinitions.Add(new RowDefinition());
                 var checkbox = new CheckBox() { ClassId = $"{i}" };
+                checkbox.CheckedChanged += Checkbox_CheckedChanged;
                 checkbox.VerticalOptions = new LayoutOptions(LayoutAlignment.Center, false);
                 checks.Add(checkbox);
 
@@ -58,6 +53,30 @@ namespace StudentBook
                 Grid.SetColumn(text, 1);
                 Grid.SetRow(checkbox, i);
                 Grid.SetRow(text, i);
+            }
+        }
+
+        private void Touch_Tapped(object sender, EventArgs e)
+        {
+            var label = sender as Label;
+            int position = Grid.GetRow(label);
+            checks[position].IsChecked = !checks[position].IsChecked;
+        }
+
+        private void Checkbox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            if (isSingle)
+            {
+                isSingle = false;
+                var checkbox = sender as CheckBox;
+                int position = Grid.GetRow(checkbox);
+                for(var i = 0; i < checks.Count; i++)
+                {
+                    if (checks[i].IsChecked && checks[i] != checkbox)
+                        checks[i].IsChecked = false;
+                }
+                isSingle = true;
+                //checkbox.
             }
         }
 
