@@ -20,6 +20,7 @@ namespace StudentBook
             Disappearing += Languages_Disappearing;
             InitializeComponent();
             var table = Singleton.StudentDB.GetLanguagesTable();
+            bool isMarked = false;
             for (var i = 0; i < table.Count; i++)
             {
                 var radioButton = new Button() {
@@ -33,12 +34,19 @@ namespace StudentBook
                     Margin = new Thickness(0,5,0,5),
                     BorderWidth = 1};
                 if (table[i].ID == Singleton.Parametrs.Language)
+                {
                     radioButton.TextColor = Color.Orange;
+                    isMarked = true;
+                }
                 radioButton.Clicked += RadioButton_Clicked;
                 LanguagesGrid.Children.Add(radioButton);
                 //Grid.SetColumn(radioButton, 0);
                 //Grid.SetRow(radioButton, i);
             }
+            /*if (!isMarked)
+            {
+                var button = LanguagesGrid.Children.FirstOrDefault(r=>r.ClassId=="en")
+            }*/
         }
 
         private void Languages_Disappearing(object sender, EventArgs e)

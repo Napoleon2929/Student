@@ -71,12 +71,11 @@ namespace StudentBook
         }
         private async void Play_Clicked(object sender, EventArgs e)
         {
+
             if (Singleton.Parametrs == null)
-            {
                 Singleton.Parametrs = Parametrs.GetParametrs();
-                if (Singleton.Parametrs.TopicsFilter == null)
-                    Singleton.Parametrs.SetDefaultFilter();
-            }
+            if (Singleton.Parametrs.TopicsFilter == null)
+                Singleton.Parametrs.SetDefaultFilter();
             PlayButton.IsEnabled = false;
             if (await SelectQuestions())
                 await Navigation.PushAsync(new PlayingRoom());
