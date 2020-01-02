@@ -98,7 +98,8 @@ namespace StudentBook
             if (Singleton.Quiz.CurrentPosition == -1)
             {
                 await DisplayAlert("Message", "You have ended for all questions", "OK");
-                await Navigation.PopToRootAsync();
+                await Navigation.PushAsync(new ResultOfPlayingRoom());
+                //await Navigation.PopToRootAsync();
             }
             else
                 UpdateData();

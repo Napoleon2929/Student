@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="StudentBook.ResultOfPlayingRoom"
+             BackgroundColor="ForestGreen">
+    <ContentPage.Resources>
+        <Style x:Key="ButtonsStyle" TargetType="Button">
+            <Setter Property="HeightRequest" Value="10"/>
+            <Setter Property="BackgroundColor" Value="#fea201"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontSize" Value="Title"/>
+            <Setter Property="CornerRadius" Value="30"/>
+        </Style>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <BoxView CornerRadius="30" Grid.Row="0" BackgroundColor="Orange" Margin="30,30,30,30"></BoxView>
+        <Label FontSize="Large" Text="Congr" Grid.Row="0" Margin="50,40,50,40"></Label>
+
+        <BoxView CornerRadius="30" Grid.Row="1" BackgroundColor="Orange" Margin="30,30,30,30"></BoxView>
+        <Label FontSize="Large" Text="State" Grid.Row="1"  Margin="50,40,50,40"></Label>
+
+        <Button Clicked="CheckAnswers_Clicked" Margin="40,40,40,40" Text="Check answers" Grid.Row="2" Style="{StaticResource Key=ButtonsStyle}"></Button>
+        <Button Clicked="ToMainMenu_Clicked" Margin="40,40,40,40" Text="To main menu" Grid.Row="3" Style="{StaticResource Key=ButtonsStyle}"></Button>
+    </Grid>
+</ContentPage>

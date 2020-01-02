@@ -64,8 +64,14 @@ namespace StudentBook
         {
             Languages.IsEnabled = false;
             await Navigation.PushAsync(new Languages());
-
             Languages.IsEnabled = true;
+        }
+
+        private async void SelectQuestions(object sender, EventArgs e)
+        {
+            CountOfQuestions.IsEnabled = false;
+            await Navigation.PushAsync(new CountOfQuestions());
+            CountOfQuestions.IsEnabled = true;
         }
     }
 }
