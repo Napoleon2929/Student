@@ -11,12 +11,13 @@ using DatabaseLibrary.Models;
 using System.Net.Http;
 using System.Threading;
 using Plugin.Connectivity;
+using Xamarin.Forms.Xaml;
 
 namespace StudentBook
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
-    [DesignTimeVisible(false)]
+    [DesignTimeVisible(false), XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
         //StudentDBEntity studentDB = new StudentDBEntity("task.db");
@@ -62,6 +63,7 @@ namespace StudentBook
                 }
             }
         } 
+
         private async void Settings_Clicked(object sender, EventArgs e)
         {
             SettingsButton.IsEnabled = false;
@@ -71,12 +73,11 @@ namespace StudentBook
         }
         private async void Play_Clicked(object sender, EventArgs e)
         {
-
+            PlayButton.IsEnabled = false;
             if (Singleton.Parametrs == null)
                 Singleton.Parametrs = Parametrs.GetParametrs();
             if (Singleton.Parametrs.TopicsFilter == null)
                 Singleton.Parametrs.SetDefaultFilter();
-            PlayButton.IsEnabled = false;
             if (await SelectQuestions())
                 await Navigation.PushAsync(new PlayingRoom());
             PlayButton.IsEnabled = true;

@@ -65,19 +65,17 @@ namespace StudentBook
 
         private void Checkbox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            if (isSingle)
+            if (!isSingle)
+                return;
+            isSingle = false;
+            var checkbox = sender as CheckBox;
+            for (var i = 0; i < checks.Count; i++)
             {
-                isSingle = false;
-                var checkbox = sender as CheckBox;
-                int position = Grid.GetRow(checkbox);
-                for(var i = 0; i < checks.Count; i++)
-                {
-                    if (checks[i].IsChecked && checks[i] != checkbox)
-                        checks[i].IsChecked = false;
-                }
-                isSingle = true;
-                //checkbox.
+                if (checks[i].IsChecked && checks[i] != checkbox)
+                    checks[i].IsChecked = false;
             }
+            isSingle = true;
+
         }
 
         private async void Answer_Clicked(object sender, EventArgs e)
