@@ -26,12 +26,12 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <BoxView CornerRadius="30" Grid.Row="0" BackgroundColor="Orange" Margin="30,30,30,30"></BoxView>
-        <Label FontSize="Large" Text="Congr" Grid.Row="0" Margin="50,40,50,40"></Label>
+        <Label FontSize="Title" Text="Congratulations!!!" Grid.Row="0" Margin="50,40,50,40"></Label>
 
         <BoxView CornerRadius="30" Grid.Row="1" BackgroundColor="Orange" Margin="30,30,30,30"></BoxView>
-        <Label FontSize="Large" Text="State" Grid.Row="1"  Margin="50,40,50,40"></Label>
+        <Label x:Name="stateLabel" FontSize="Large" Grid.Row="1"  Margin="50,40,50,40"></Label>
 
-        <Button Clicked="CheckAnswers_Clicked" Margin="40,40,40,40" Text="Check answers" Grid.Row="2" Style="{StaticResource Key=ButtonsStyle}"></Button>
+        <Button x:Name="checkAns" Clicked="CheckAnswers_Clicked" Margin="40,40,40,40" Text="Check answers" Grid.Row="2" Style="{StaticResource Key=ButtonsStyle}"></Button>
         <Button Clicked="ToMainMenu_Clicked" Margin="40,40,40,40" Text="To main menu" Grid.Row="3" Style="{StaticResource Key=ButtonsStyle}"></Button>
     </Grid>
 </ContentPage>
