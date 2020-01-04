@@ -16,7 +16,7 @@ namespace StudentBook
         //StudentDBEntity studentDB = new StudentDBEntity("task.db");
         public Languages()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasNavigationBar(this, true);
             Disappearing += Languages_Disappearing;
             InitializeComponent();
             var table = Singleton.StudentDB.GetLanguagesTable();

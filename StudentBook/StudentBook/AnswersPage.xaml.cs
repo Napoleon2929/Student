@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +14,6 @@ namespace StudentBook
     {
         private QuestionsToView questionsToView;
         private List<CheckBox> checks;
-        private bool isSingle;
         private int position;
 
         public AnswersPage(int pos)
@@ -46,7 +45,6 @@ namespace StudentBook
             TaskText.Text = questionsToView.Task;
             QuestionsGrid.Children.Clear();
             QuestionsGrid.RowDefinitions = new RowDefinitionCollection();
-            isSingle = questionsToView.CorrectAnswer.Length == 1;
             for (var i = 0; i < questionsToView.Answers.Length; i++)
             {
                 QuestionsGrid.RowDefinitions.Add(new RowDefinition());

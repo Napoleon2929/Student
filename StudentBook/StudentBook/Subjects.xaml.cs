@@ -19,7 +19,7 @@ namespace StudentBook
         private List<Switch> switches;
         public Subjects()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasNavigationBar(this, true);
             InitializeComponent();
             Disappearing += Subjects_Disappearing;
             switches = new List<Switch>();

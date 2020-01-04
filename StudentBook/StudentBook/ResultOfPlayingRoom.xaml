@@ -20,18 +20,22 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <BoxView CornerRadius="30" Grid.Row="0" BackgroundColor="Orange" Margin="30,30,30,30"></BoxView>
-        <Label FontSize="Title" Text="Congratulations!!!" Grid.Row="0" Margin="50,40,50,40"></Label>
 
+        <Image Margin="0,10,0,-10" Source="logo.png"></Image>
+        
         <BoxView CornerRadius="30" Grid.Row="1" BackgroundColor="Orange" Margin="30,30,30,30"></BoxView>
-        <Label x:Name="stateLabel" FontSize="Large" Grid.Row="1"  Margin="50,40,50,40"></Label>
+        <Label FontSize="Title" Text="Congratulations!!!" Grid.Row="1" Margin="50,40,50,40"></Label>
 
-        <Button x:Name="checkAns" Clicked="CheckAnswers_Clicked" Margin="40,40,40,40"  Grid.Row="2" Style="{StaticResource Key=ButtonsStyle}"></Button>
-        <Button x:Name="ToMenuButton" Clicked="ToMainMenu_Clicked" Margin="40,40,40,40" Grid.Row="3" Style="{StaticResource Key=ButtonsStyle}"></Button>
+        <BoxView CornerRadius="30" Grid.Row="2" BackgroundColor="Orange" Margin="30,30,30,30"></BoxView>
+        <Label x:Name="stateLabel" FontSize="Large" Grid.Row="2"  Margin="50,40,50,40"></Label>
+
+        <Button x:Name="checkAns" Clicked="CheckAnswers_Clicked" Margin="30,30,30,30" Text="Check answers" Grid.Row="3" Style="{StaticResource Key=ButtonsStyle}"></Button>
+        <Button x:Name="ToMenuButton" Clicked="ToMainMenu_Clicked" Margin="30,30,30,30" Grid.Row="4" Style="{StaticResource Key=ButtonsStyle}"></Button>
     </Grid>
 </ContentPage>
