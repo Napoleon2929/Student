@@ -16,15 +16,14 @@ namespace StudentBook
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            ToMenuButton.Text = Resx.AppResources.ToMenuButton;
-            checkAns.Text = Resx.AppResources.CheckAnswerButton;
             stateLabel.Text = "Correct answers " + Singleton.Quiz.CorrectQuestions.Count + " from " + Singleton.Quiz.Questions.Count;
+            checkAns.IsEnabled = Singleton.Quiz.UncorrectQuestions.Count != 0;
         }
 
         private async void CheckAnswers_Clicked(object sender, EventArgs e)
         {
             checkAns.IsEnabled = false;
-            await Navigation.PushAsync(new AnswersPage());
+            await Navigation.PushAsync(new AnswersPage(0));
             checkAns.IsEnabled = true;
         }
 

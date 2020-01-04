@@ -27,13 +27,13 @@ namespace StudentBook
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             PlayButton.Text = Resx.AppResources.PlayButton;
-            Appearing += MainPage_Appearing;
+            //Appearing += MainPage_Appearing;
         }
         public void UpdateText()
         {
             PlayButton.Text = Resx.AppResources.PlayButton;
         }
-        private async void MainPage_Appearing(object sender, EventArgs e)
+        protected async override void OnAppearing()
         {
             UpdateText();
             if (Navigation.NavigationStack.Count > 1)
@@ -57,12 +57,12 @@ namespace StudentBook
                                 Environment.Exit(1);
                         }
                         else
-                            Singleton.StudentDB = new StudentDBEntity("task.db");    
+                            Singleton.StudentDB = new StudentDBEntity("task.db");
                         break;
                     }
                 }
             }
-        } 
+        }
 
         private async void Settings_Clicked(object sender, EventArgs e)
         {

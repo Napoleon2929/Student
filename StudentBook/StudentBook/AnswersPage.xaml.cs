@@ -15,34 +15,32 @@ namespace StudentBook
         private QuestionsToView questionsToView;
         private List<CheckBox> checks;
         private bool isSingle;
+        private int position;
 
-        public AnswersPage()
+        public AnswersPage(int pos)
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            nextButton.Text = Resx.AppResources.NextButton;
-            previousButton.Text = Resx.AppResources.PreviousButtton;
-            Singleton.Quiz.CurrentPosition = 0;
+            position = pos;
             Update();
         }
 
         private void Update()
         {
-            if (Singleton.Quiz.CurrentPosition == 0)
+            if (position == 0)
                 previousButton.IsEnabled = false;
             else
                 previousButton.IsEnabled = true;
-            if (Singleton.Quiz.CurrentPosition == Singleton.Quiz.Questions.Count-1)
+            if (position == Singleton.Quiz.UncorrectQuestions.Count - 1)
                 nextButton.IsEnabled = false;
             else
                 nextButton.IsEnabled = true;
 
-            questionsToView = Singleton.Quiz.Questions[Singleton.Quiz.CurrentPosition];
+            questionsToView = Singleton.Quiz.UncorrectQuestions[position];
             checks = new List<CheckBox>();
-            var numberText = Singleton.Quiz.CurrentPosition;
-            numberText++;
+            var numberText = position + 1;
             Number.Text = numberText.ToString();
-            Correct.Text = $"{numberText.ToString()}/{Singleton.Quiz.Questions.Count}";
+            Correct.Text = $"{numberText.ToString()}/{Singleton.Quiz.UncorrectQuestions.Count}";
             TaskText.Text = questionsToView.Task;
             QuestionsGrid.Children.Clear();
             QuestionsGrid.RowDefinitions = new RowDefinitionCollection();
@@ -53,7 +51,7 @@ namespace StudentBook
                 var checkbox = new CheckBox() { ClassId = $"{i}", IsEnabled = false };
                 checkbox.VerticalOptions = new LayoutOptions(LayoutAlignment.Center, false);
                 checks.Add(checkbox);
-                
+
                 var text = new Label() { Text = questionsToView.Answers[i] };
                 TapGestureRecognizer touch = new TapGestureRecognizer();
                 text.VerticalOptions = new LayoutOptions(LayoutAlignment.Center, false);
@@ -67,17 +65,19 @@ namespace StudentBook
                 Grid.SetRow(checkbox, i);
                 Grid.SetRow(text, i);
             }
+            foreach (var index in questionsToView.CorrectAnswer)
+                checks[index].IsChecked = true;
         }
 
         private void PreviousButton(object sender, EventArgs e)
         {
-            Singleton.Quiz.CurrentPosition--;
+            position--;
             Update();
         }
 
         private void NextButton(object sender, EventArgs e)
         {
-            Singleton.Quiz.CurrentPosition++;
+            position++;
             Update();
         }
 

@@ -19,10 +19,20 @@ namespace StudentBook
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            AnswerButton.Text = Resx.AppResources.AnswerButton;
             UpdateData();
         }
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
 
+            //Navigation.RemovePage(this);
+        }
+        protected override bool OnBackButtonPressed()
+        {
+            if (Singleton.Quiz.CurrentPosition != -1)
+                Navigation.InsertPageBefore(new ResultOfPlayingRoom(), this);
+            return base.OnBackButtonPressed();
+        }
         private void UpdateData()
         {
             questionsToView = Singleton.Quiz.Questions[Singleton.Quiz.CurrentPosition];
@@ -83,7 +93,7 @@ namespace StudentBook
         {
             AnswerButton.IsEnabled = false;
             var check = new List<int>();
-            foreach(var item in checks)
+            foreach (var item in checks)
             {
                 if (item.IsChecked)
                     check.Add(int.Parse(item.ClassId));
@@ -96,15 +106,16 @@ namespace StudentBook
             Singleton.Quiz.Answer(questionsToView.CheckAnswers(check.ToArray()));
             if (Singleton.Quiz.CurrentPosition == -1)
             {
-                await DisplayAlert("Message", "You have ended for all questions", "OK");
+                //await DisplayAlert("Message", "You have ended for all questions", "OK");
                 await Navigation.PushAsync(new ResultOfPlayingRoom());
+                Navigation.RemovePage(this);
                 //await Navigation.PopToRootAsync();
             }
             else
                 UpdateData();
             AnswerButton.IsEnabled = true;
-                //await Navigation.PushModalAsync(new PlayingRoom());
-                //await DisplayAlert("result", $"{questionsToView.CheckAnswers(answers.ToArray())}\nYou have answered {answers.ToArray()}", "ok");
+            //await Navigation.PushModalAsync(new PlayingRoom());
+            //await DisplayAlert("result", $"{questionsToView.CheckAnswers(answers.ToArray())}\nYou have answered {answers.ToArray()}", "ok");
         }
     }
 }
