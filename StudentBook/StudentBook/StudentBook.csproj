@@ -35,10 +35,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>AppResources.ru.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resx\AppResources.fr.Designer.cs">
-      <DependentUpon>AppResources.fr.resx</DependentUpon>
+    <Compile Update="Resx\AppResources.es.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DependentUpon>AppResources.es.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resx\AppResources. el.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppResources. el.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resx\AppResources.fi.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppResources.fi.resx</DependentUpon>
     </Compile>
     <Compile Update="Resx\AppResources.de.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -77,12 +87,20 @@
     <EmbeddedResource Update="RegisterForm.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resx\AppResources.fr.resx">
-      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
-      <Generator>PublicResXFileCodeGenerator</Generator>
+    <EmbeddedResource Update="Resx\AppResources.es.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.es.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resx\AppResources. el.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources. el.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resx\AppResources.fi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.fi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resx\AppResources.de.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
+      <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.de.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Settings.xaml">

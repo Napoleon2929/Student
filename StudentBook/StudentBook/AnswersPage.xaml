@@ -45,8 +45,8 @@
                 </Grid>
             </ScrollView>
 
-            <Button IsEnabled="False" Clicked="PreviousButton" x:Name="previousButton" Margin="30,30,30,20" Text="Previous" Grid.Column="0" Grid.Row="4" Style="{StaticResource Key=ButtonsStyle}"></Button>
-            <Button Clicked="NextButton" x:Name="nextButton" Margin="30,30,30,20" Text="Next" Grid.Column="1" Grid.Row="4" Style="{StaticResource Key=ButtonsStyle}"></Button>
+            <Button IsEnabled="False" Clicked="PreviousButton" x:Name="previousButton" Margin="30,30,30,20"  Grid.Column="0" Grid.Row="4" Style="{StaticResource Key=ButtonsStyle}"></Button>
+            <Button Clicked="NextButton" x:Name="nextButton" Margin="30,30,30,20"  Grid.Column="1" Grid.Row="4" Style="{StaticResource Key=ButtonsStyle}"></Button>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

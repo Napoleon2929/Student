@@ -61,6 +61,24 @@ namespace StudentBook.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Answer.
+        /// </summary>
+        public static string AnswerButton {
+            get {
+                return ResourceManager.GetString("AnswerButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Check answers.
+        /// </summary>
+        public static string CheckAnswerButton {
+            get {
+                return ResourceManager.GetString("CheckAnswerButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Count of questions.
         /// </summary>
         public static string CountOfQuestions {
@@ -84,6 +102,15 @@ namespace StudentBook.Resx {
         public static string Login {
             get {
                 return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Next.
+        /// </summary>
+        public static string NextButton {
+            get {
+                return ResourceManager.GetString("NextButton", resourceCulture);
             }
         }
         
@@ -115,6 +142,15 @@ namespace StudentBook.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Previous.
+        /// </summary>
+        public static string PreviousButtton {
+            get {
+                return ResourceManager.GetString("PreviousButtton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Sign In.
         /// </summary>
         public static string SignInButton {
@@ -138,6 +174,15 @@ namespace StudentBook.Resx {
         public static string Subjects {
             get {
                 return ResourceManager.GetString("Subjects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на To main menu.
+        /// </summary>
+        public static string ToMenuButton {
+            get {
+                return ResourceManager.GetString("ToMenuButton", resourceCulture);
             }
         }
     }

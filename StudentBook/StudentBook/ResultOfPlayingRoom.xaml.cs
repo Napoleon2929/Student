@@ -16,6 +16,8 @@ namespace StudentBook
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+            ToMenuButton.Text = Resx.AppResources.ToMenuButton;
+            checkAns.Text = Resx.AppResources.CheckAnswerButton;
             stateLabel.Text = "Correct answers " + Singleton.Quiz.CorrectQuestions.Count + " from " + Singleton.Quiz.Questions.Count;
         }
 
