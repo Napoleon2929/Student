@@ -21,6 +21,8 @@ namespace StudentBook
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+            nextButton.Text = Resx.AppResources.NextButton;
+            previousButton.Text = Resx.AppResources.PreviousButtton;
             position = pos;
             Update();
         }

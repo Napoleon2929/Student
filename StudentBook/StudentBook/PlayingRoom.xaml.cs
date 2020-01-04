@@ -19,6 +19,7 @@ namespace StudentBook
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+            AnswerButton.Text = Resx.AppResources.AnswerButton;
             UpdateData();
         }
         protected override void OnDisappearing()
