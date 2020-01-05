@@ -118,5 +118,10 @@ namespace StudentBook
             //await Navigation.PushModalAsync(new PlayingRoom());
             //await DisplayAlert("result", $"{questionsToView.CheckAnswers(answers.ToArray())}\nYou have answered {answers.ToArray()}", "ok");
         }
+        private async void BackButton(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ResultOfPlayingRoom());
+            Navigation.RemovePage(this);
+        }
     }
 }

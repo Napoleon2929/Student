@@ -18,6 +18,11 @@ namespace StudentBook
             NavigationPage.SetHasNavigationBar(this, true);
             InitializeComponent();
             CheckQuestions();
+            while(Singleton.Quiz.Questions.Count < Singleton.Parametrs.Count)
+            {
+                Singleton.Parametrs.Count -= 5;
+            }
+               
             nQuestions.Text = "In database exists " + Singleton.Quiz.Questions.Count + " questions. Now used " + Singleton.Parametrs.Count + " questions";
         }
         private void Clicked5(object sender, EventArgs e) => Number(5);
@@ -26,10 +31,15 @@ namespace StudentBook
         private void Clicked20(object sender, EventArgs e) => Number(20);
         private void Number(int n)
         {
-            Singleton.Parametrs.Count = n;
-            Parametrs.SetParametrs(Singleton.Parametrs);
             CheckQuestions();
-            nQuestions.Text = "In database exists " + Singleton.Quiz.Questions.Count + " questions. Now used " + Singleton.Parametrs.Count + " questions";
+            if (Singleton.Quiz.Questions.Count >= n)
+            {
+                Singleton.Parametrs.Count = n;
+                nQuestions.Text = "In database exists " + Singleton.Quiz.Questions.Count + " questions. Now used " + Singleton.Parametrs.Count + " questions";
+                Parametrs.SetParametrs(Singleton.Parametrs);
+            }
+            else
+                DisplayAlert("Warning!", "Don't touch this button", "idk sry(((9!");
         }
         private void CheckQuestions()
         {

@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="StudentBook.AnswersPage"
              BackgroundColor="ForestGreen">
-    
+
     <ContentPage.Resources>
         <Style x:Key="ButtonsStyle" TargetType="Button">
             <Setter Property="HeightRequest" Value="50"/>
@@ -31,12 +31,13 @@
             </Grid.RowDefinitions>
             <ImageButton BackgroundColor="Transparent" Clicked="BackButton" Margin="5,10,110,60" Grid.Column="0" Grid.Row="0" Source="backArrow"></ImageButton>
             <Label Margin="0,0,5,0" HorizontalOptions="End" x:Name="Correct" Grid.Column="1" Grid.Row="0" HorizontalTextAlignment="Start" FontSize="50" Text="10/10"></Label>
-            <ScrollView Margin="10,-60,10,80" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2">
+            <ScrollView Margin="10,-60,10,130" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2">
                 <StackLayout BackgroundColor="Orange">
                     <Label x:Name="TaskText" FontSize="35" TextColor="Black" Text="Questions"></Label>
                 </StackLayout>
             </ScrollView>
-            <ScrollView Margin="10,-50,10,0" Grid.ColumnSpan="2" Grid.Row="3" BackgroundColor="Orange">
+            <Button Margin="50,50,50,10" Grid.Row="2" Grid.ColumnSpan="2" Text="Check answers" Style="{StaticResource Key=ButtonsStyle}"></Button>
+            <ScrollView Margin="10,0,10,0" Grid.ColumnSpan="2" Grid.Row="3" BackgroundColor="Orange">
                 <Grid x:Name="QuestionsGrid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
