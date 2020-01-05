@@ -40,7 +40,6 @@ namespace StudentBook
             questionsToView = Singleton.Quiz.UncorrectQuestions[position];
             checks = new List<CheckBox>();
             var numberText = position + 1;
-            Number.Text = numberText.ToString();
             Correct.Text = $"{numberText.ToString()}/{Singleton.Quiz.UncorrectQuestions.Count}";
             TaskText.Text = questionsToView.Task;
             QuestionsGrid.Children.Clear();
@@ -80,6 +79,9 @@ namespace StudentBook
             position++;
             Update();
         }
-
+        private async void BackButton(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
     }
 }
