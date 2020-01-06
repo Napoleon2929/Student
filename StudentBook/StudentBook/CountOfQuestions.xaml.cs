@@ -23,7 +23,7 @@ namespace StudentBook
                 Singleton.Parametrs.Count -= 5;
             }
                
-            nQuestions.Text = "In database exists " + Singleton.Quiz.Questions.Count + " questions. Now used " + Singleton.Parametrs.Count + " questions";
+            nQuestions.Text = "In database exists " + Singleton.Quiz.Questions.Count + " questions.\nNow used " + Singleton.Parametrs.Count + " questions";
         }
         private void Clicked5(object sender, EventArgs e) => Number(5);
         private void Clicked10(object sender, EventArgs e) => Number(10);
@@ -49,7 +49,6 @@ namespace StudentBook
             {
                 questions.AddRange(questionsToViews.Where(q => q.TopicID == Singleton.Parametrs.TopicsFilter[i].ID));
             }
-            Singleton.Quiz = new Quiz(questions);
         }
     }
 }
