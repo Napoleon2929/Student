@@ -15,6 +15,7 @@ namespace StudentBook
         private QuestionsToView questionsToView;
         private List<CheckBox> checks;
         private int position;
+        private AnswerMode answerMode;
 
         public AnswersPage(int pos)
         {
@@ -37,10 +38,10 @@ namespace StudentBook
             else
                 nextButton.IsEnabled = true;
 
+            answerMode = AnswerMode.Correct;
             questionsToView = Singleton.Quiz.UncorrectQuestions[position];
             checks = new List<CheckBox>();
             var numberText = position + 1;
-            Number.Text = numberText.ToString();
             Correct.Text = $"{numberText.ToString()}/{Singleton.Quiz.UncorrectQuestions.Count}";
             TaskText.Text = questionsToView.Task;
             QuestionsGrid.Children.Clear();
@@ -65,8 +66,26 @@ namespace StudentBook
                 Grid.SetRow(checkbox, i);
                 Grid.SetRow(text, i);
             }
-            foreach (var index in questionsToView.CorrectAnswer)
-                checks[index].IsChecked = true;
+            ShowAnswers(answerMode);
+        }
+
+        private void ShowAnswers(AnswerMode mode)
+        {
+            foreach (var check in checks)
+                check.IsChecked = false;
+            switch (mode)
+            {
+                case AnswerMode.Correct:
+                    ChangeAnswerButton.Text = "Show my answers";
+                    foreach (var index in questionsToView.CorrectAnswer)
+                        checks[index].IsChecked = true;
+                    break;
+                case AnswerMode.Given:
+                    ChangeAnswerButton.Text = "Show correct answers";
+                    foreach (var index in questionsToView.GivenAnswers)
+                        checks[index].IsChecked = true;
+                    break;
+            }
         }
 
         private void PreviousButton(object sender, EventArgs e)
@@ -80,6 +99,18 @@ namespace StudentBook
             position++;
             Update();
         }
+        private async void BackButton(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
 
+        private void ChangeAnswerButton_Clicked(object sender, EventArgs e)
+        {
+            if (answerMode == AnswerMode.Correct)
+                answerMode = AnswerMode.Given;
+            else
+                answerMode = AnswerMode.Correct;
+            ShowAnswers(answerMode);
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace StudentBook
         //private Parametrs parametrs;
         public Settings()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasNavigationBar(this, true);
             InitializeComponent();
             UpdateText();
             Appearing += Settings_Appearing;

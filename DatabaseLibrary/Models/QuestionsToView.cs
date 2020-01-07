@@ -12,6 +12,7 @@ namespace DatabaseLibrary.Models
         public string Task { get; set; }
         public int[] CorrectAnswer { get; set; }
         public string[] Answers { get; set; }
+        public int[] GivenAnswers { get; set; }
 
         public QuestionsToView() { }
         public QuestionsToView(Questions questions)
@@ -35,6 +36,7 @@ namespace DatabaseLibrary.Models
         public bool CheckAnswers(int[] answers)
         {
             Array.Sort(answers);
+            GivenAnswers = answers;
             if (answers.Length != CorrectAnswer.Length)
                 return false;
             for(var i=0;i< answers.Length; i++)

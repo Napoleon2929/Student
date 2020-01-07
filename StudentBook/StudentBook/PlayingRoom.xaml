@@ -28,7 +28,8 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <Label Margin="5,0,0,0" x:Name="Number" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Start" FontSize="50" Text="10"></Label>
+            <ImageButton BackgroundColor="Transparent" Clicked="BackButton" Margin="5,10,110,60" Grid.Column="0" Grid.Row="0" Source="backArrow"></ImageButton>
+            <Label Margin="80,0,0,0" x:Name="Number" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Start" FontSize="50" Text="10"></Label>
             <Label Margin="0,0,5,0" HorizontalOptions="End" x:Name="Correct" Grid.Column="1" Grid.Row="0" HorizontalTextAlignment="Start" FontSize="50" Text="10/10"></Label>
             <ScrollView Margin="10,-60,10,80" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2">
                 <StackLayout BackgroundColor="Orange">

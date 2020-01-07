@@ -22,15 +22,9 @@ namespace StudentBook
             AnswerButton.Text = Resx.AppResources.AnswerButton;
             UpdateData();
         }
-        protected override void OnDisappearing()
-        {
-            base.OnDisappearing();
-
-            //Navigation.RemovePage(this);
-        }
         protected override bool OnBackButtonPressed()
         {
-            if (Singleton.Quiz.CurrentPosition != -1)
+            if (Singleton.Quiz.CurrentPosition > 0)
                 Navigation.InsertPageBefore(new ResultOfPlayingRoom(), this);
             return base.OnBackButtonPressed();
         }
@@ -107,16 +101,17 @@ namespace StudentBook
             Singleton.Quiz.Answer(questionsToView.CheckAnswers(check.ToArray()));
             if (Singleton.Quiz.CurrentPosition == -1)
             {
-                //await DisplayAlert("Message", "You have ended for all questions", "OK");
                 await Navigation.PushAsync(new ResultOfPlayingRoom());
                 Navigation.RemovePage(this);
-                //await Navigation.PopToRootAsync();
             }
             else
                 UpdateData();
             AnswerButton.IsEnabled = true;
-            //await Navigation.PushModalAsync(new PlayingRoom());
-            //await DisplayAlert("result", $"{questionsToView.CheckAnswers(answers.ToArray())}\nYou have answered {answers.ToArray()}", "ok");
+        }
+        private async void BackButton(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ResultOfPlayingRoom());
+            Navigation.RemovePage(this);
         }
     }
 }
