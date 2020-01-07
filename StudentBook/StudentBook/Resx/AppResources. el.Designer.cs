@@ -59,5 +59,131 @@ namespace StudentBook.Resx {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Απάντηση.
+        /// </summary>
+        internal static string AnswerButton {
+            get {
+                return ResourceManager.GetString("AnswerButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ελεγξε τις απαντήσεις.
+        /// </summary>
+        internal static string CheckAnswerButton {
+            get {
+                return ResourceManager.GetString("CheckAnswerButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Αριθμός ερωτήσεων.
+        /// </summary>
+        internal static string CountOfQuestions {
+            get {
+                return ResourceManager.GetString("CountOfQuestions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Γλώσσες.
+        /// </summary>
+        internal static string Languages {
+            get {
+                return ResourceManager.GetString("Languages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Σύνδεση.
+        /// </summary>
+        internal static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Επόμενο.
+        /// </summary>
+        internal static string NextButton {
+            get {
+                return ResourceManager.GetString("NextButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ειδοποίηση.
+        /// </summary>
+        internal static string Notice {
+            get {
+                return ResourceManager.GetString("Notice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Κωδικός πρόσβασης.
+        /// </summary>
+        internal static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Παίζω.
+        /// </summary>
+        internal static string PlayButton {
+            get {
+                return ResourceManager.GetString("PlayButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Προηγούμενος.
+        /// </summary>
+        internal static string PreviousButtton {
+            get {
+                return ResourceManager.GetString("PreviousButtton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Συνδεθείτε.
+        /// </summary>
+        internal static string SignInButton {
+            get {
+                return ResourceManager.GetString("SignInButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на ΗΧΗΤΙΚΑ εφε.
+        /// </summary>
+        internal static string SoundEffects {
+            get {
+                return ResourceManager.GetString("SoundEffects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на μαθήματα.
+        /// </summary>
+        internal static string Subjects {
+            get {
+                return ResourceManager.GetString("Subjects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Στο κύριο μενού.
+        /// </summary>
+        internal static string ToMenuButton {
+            get {
+                return ResourceManager.GetString("ToMenuButton", resourceCulture);
+            }
+        }
     }
 }

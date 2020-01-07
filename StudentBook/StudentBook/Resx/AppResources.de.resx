@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AnswerButton" xml:space="preserve">
+    <value>Antworten</value>
+  </data>
+  <data name="CheckAnswerButton" xml:space="preserve">
+    <value>Antworten kontrollieren</value>
+  </data>
   <data name="CountOfQuestions" xml:space="preserve">
     <value>Anzahl der Fragen</value>
   </data>
@@ -125,6 +131,9 @@
   </data>
   <data name="Login" xml:space="preserve">
     <value>Einloggen</value>
+  </data>
+  <data name="NextButton" xml:space="preserve">
+    <value>Nächster</value>
   </data>
   <data name="Notice" xml:space="preserve">
     <value>Beachten</value>
@@ -135,6 +144,9 @@
   <data name="PlayButton" xml:space="preserve">
     <value>Abspielen</value>
   </data>
+  <data name="PreviousButtton" xml:space="preserve">
+    <value>Bisherige</value>
+  </data>
   <data name="SignInButton" xml:space="preserve">
     <value>Anmelden</value>
   </data>
@@ -143,5 +155,8 @@
   </data>
   <data name="Subjects" xml:space="preserve">
     <value>Fächer</value>
+  </data>
+  <data name="ToMenuButton" xml:space="preserve">
+    <value>Zum Hauptmenü</value>
   </data>
 </root>
