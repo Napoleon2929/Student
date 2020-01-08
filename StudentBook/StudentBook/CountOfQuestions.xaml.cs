@@ -23,7 +23,7 @@ namespace StudentBook
                 Singleton.Parametrs.Count -= 5;
             }
                
-            nQuestions.Text = "In database exists " + Singleton.Quiz.Questions.Count + " questions.\nNow used " + Singleton.Parametrs.Count + " questions";
+            nQuestions.Text = Resx.AppResources.InDB + Singleton.Quiz.Questions.Count + Resx.AppResources.NowUsed + Singleton.Parametrs.Count + Resx.AppResources.Questions;
         }
         private void Clicked5(object sender, EventArgs e) => Number(5);
         private void Clicked10(object sender, EventArgs e) => Number(10);

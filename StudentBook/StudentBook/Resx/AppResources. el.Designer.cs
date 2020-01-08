@@ -88,6 +88,15 @@ namespace StudentBook.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Η βάση δεδομένων υπάρχει .
+        /// </summary>
+        internal static string InDB {
+            get {
+                return ResourceManager.GetString("InDB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Γλώσσες.
         /// </summary>
         internal static string Languages {
@@ -124,6 +133,15 @@ namespace StudentBook.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на  ερωτήσεις. Τώρα που χρησιμοποιείται .
+        /// </summary>
+        internal static string NowUsed {
+            get {
+                return ResourceManager.GetString("NowUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Κωδικός πρόσβασης.
         /// </summary>
         internal static string Password {
@@ -147,6 +165,15 @@ namespace StudentBook.Resx {
         internal static string PreviousButtton {
             get {
                 return ResourceManager.GetString("PreviousButtton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на  ερωτήσεις.
+        /// </summary>
+        internal static string Questions {
+            get {
+                return ResourceManager.GetString("Questions", resourceCulture);
             }
         }
         

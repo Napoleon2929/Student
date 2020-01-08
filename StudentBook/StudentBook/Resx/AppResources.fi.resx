@@ -126,6 +126,9 @@
   <data name="CountOfQuestions" xml:space="preserve">
     <value>Kysymysten lukumäärä</value>
   </data>
+  <data name="InDB" xml:space="preserve">
+    <value>Tietokanta on olemassa </value>
+  </data>
   <data name="Languages" xml:space="preserve">
     <value>Kieli</value>
   </data>
@@ -138,14 +141,20 @@
   <data name="Notice" xml:space="preserve">
     <value>Ilmoitus</value>
   </data>
+  <data name="NowUsed" xml:space="preserve">
+    <value> kysymyksiä. Nyt käytetty </value>
+  </data>
   <data name="Password" xml:space="preserve">
-    <value>Pelata</value>
+    <value>Salasana</value>
   </data>
   <data name="PlayButton" xml:space="preserve">
-    <value>Play</value>
+    <value>Pelata</value>
   </data>
   <data name="PreviousButtton" xml:space="preserve">
     <value>Edellinen</value>
+  </data>
+  <data name="Questions" xml:space="preserve">
+    <value> kysymykset </value>
   </data>
   <data name="SignInButton" xml:space="preserve">
     <value>Kirjaudu sisään</value>

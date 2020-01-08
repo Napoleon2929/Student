@@ -35,7 +35,7 @@
         <BoxView CornerRadius="30" Grid.Row="2" BackgroundColor="Orange" Margin="30,30,30,30"></BoxView>
         <Label x:Name="stateLabel" FontSize="Large" Grid.Row="2"  Margin="50,40,50,40"></Label>
 
-        <Button x:Name="checkAns" Clicked="CheckAnswers_Clicked" Margin="30,30,30,30" Text="Check answers" Grid.Row="3" Style="{StaticResource Key=ButtonsStyle}"></Button>
+        <Button x:Name="checkAns" Clicked="CheckAnswers_Clicked" Margin="30,30,30,30"  Grid.Row="3" Style="{StaticResource Key=ButtonsStyle}"></Button>
         <Button x:Name="ToMenuButton" Clicked="ToMainMenu_Clicked" Margin="30,30,30,30" Grid.Row="4" Style="{StaticResource Key=ButtonsStyle}"></Button>
     </Grid>
 </ContentPage>

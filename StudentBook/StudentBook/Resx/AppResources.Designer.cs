@@ -88,6 +88,15 @@ namespace StudentBook.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на In database exists .
+        /// </summary>
+        public static string InDB {
+            get {
+                return ResourceManager.GetString("InDB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Languages.
         /// </summary>
         public static string Languages {
@@ -124,6 +133,15 @@ namespace StudentBook.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на  questions. Now used .
+        /// </summary>
+        public static string NowUsed {
+            get {
+                return ResourceManager.GetString("NowUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Password.
         /// </summary>
         public static string Password {
@@ -147,6 +165,15 @@ namespace StudentBook.Resx {
         public static string PreviousButtton {
             get {
                 return ResourceManager.GetString("PreviousButtton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на  questions.
+        /// </summary>
+        public static string Questions {
+            get {
+                return ResourceManager.GetString("Questions", resourceCulture);
             }
         }
         

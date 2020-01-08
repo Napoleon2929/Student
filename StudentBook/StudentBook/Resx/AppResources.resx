@@ -126,6 +126,9 @@
   <data name="CountOfQuestions" xml:space="preserve">
     <value>Count of questions</value>
   </data>
+  <data name="InDB" xml:space="preserve">
+    <value>In database exists </value>
+  </data>
   <data name="Languages" xml:space="preserve">
     <value>Languages</value>
   </data>
@@ -138,6 +141,9 @@
   <data name="Notice" xml:space="preserve">
     <value>Notice</value>
   </data>
+  <data name="NowUsed" xml:space="preserve">
+    <value> questions. Now used </value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
@@ -146,6 +152,9 @@
   </data>
   <data name="PreviousButtton" xml:space="preserve">
     <value>Previous</value>
+  </data>
+  <data name="Questions" xml:space="preserve">
+    <value> questions</value>
   </data>
   <data name="SignInButton" xml:space="preserve">
     <value>Sign In</value>
