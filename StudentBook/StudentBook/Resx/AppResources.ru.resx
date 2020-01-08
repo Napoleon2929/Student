@@ -156,6 +156,12 @@
   <data name="Questions" xml:space="preserve">
     <value> вопросов</value>
   </data>
+  <data name="Showcorrectanswers" xml:space="preserve">
+    <value>Показать правильные ответы</value>
+  </data>
+  <data name="Showmyanswers" xml:space="preserve">
+    <value>Показать мои ответы</value>
+  </data>
   <data name="SignInButton" xml:space="preserve">
     <value>Войти</value>
   </data>

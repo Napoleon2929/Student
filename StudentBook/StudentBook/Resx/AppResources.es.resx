@@ -156,6 +156,12 @@
   <data name="Questions" xml:space="preserve">
     <value>  preguntas </value>
   </data>
+  <data name="Showcorrectanswers" xml:space="preserve">
+    <value>Mostrar respuestas correctas</value>
+  </data>
+  <data name="Showmyanswers" xml:space="preserve">
+    <value>Mostrar mis respuestas</value>
+  </data>
   <data name="SignInButton" xml:space="preserve">
     <value>Registrarse</value>
   </data>

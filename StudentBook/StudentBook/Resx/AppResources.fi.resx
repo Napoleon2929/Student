@@ -156,6 +156,12 @@
   <data name="Questions" xml:space="preserve">
     <value> kysymykset </value>
   </data>
+  <data name="Showcorrectanswers" xml:space="preserve">
+    <value>Näytä oikeat vastaukset</value>
+  </data>
+  <data name="Showmyanswers" xml:space="preserve">
+    <value>Näytä vastaukseni</value>
+  </data>
   <data name="SignInButton" xml:space="preserve">
     <value>Kirjaudu sisään</value>
   </data>

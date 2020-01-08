@@ -76,12 +76,12 @@ namespace StudentBook
             switch (mode)
             {
                 case AnswerMode.Correct:
-                    ChangeAnswerButton.Text = "Show my answers";
+                    ChangeAnswerButton.Text = Resx.AppResources.Showmyanswers;
                     foreach (var index in questionsToView.CorrectAnswer)
                         checks[index].IsChecked = true;
                     break;
                 case AnswerMode.Given:
-                    ChangeAnswerButton.Text = "Show correct answers";
+                    ChangeAnswerButton.Text = Resx.AppResources.Showcorrectanswers;
                     foreach (var index in questionsToView.GivenAnswers)
                         checks[index].IsChecked = true;
                     break;

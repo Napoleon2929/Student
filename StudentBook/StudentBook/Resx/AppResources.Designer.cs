@@ -178,6 +178,24 @@ namespace StudentBook.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Show correct answers.
+        /// </summary>
+        public static string Showcorrectanswers {
+            get {
+                return ResourceManager.GetString("Showcorrectanswers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Show my answers.
+        /// </summary>
+        public static string Showmyanswers {
+            get {
+                return ResourceManager.GetString("Showmyanswers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Sign In.
         /// </summary>
         public static string SignInButton {
