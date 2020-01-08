@@ -12,18 +12,18 @@ namespace StudentBook
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CountOfQuestions : ContentPage
     {
-        
+        private int questionCount;
         public CountOfQuestions()
         {
             NavigationPage.SetHasNavigationBar(this, true);
             InitializeComponent();
-            CheckQuestions();
-            while(Singleton.Quiz.Questions.Count < Singleton.Parametrs.Count)
+            questionCount = CheckQuestions();
+            while (questionCount < Singleton.Parametrs.Count)
             {
                 Singleton.Parametrs.Count -= 5;
             }
                
-            nQuestions.Text = Resx.AppResources.InDB + Singleton.Quiz.Questions.Count + Resx.AppResources.NowUsed + Singleton.Parametrs.Count + Resx.AppResources.Questions;
+            nQuestions.Text = Resx.AppResources.InDB + questionCount + Resx.AppResources.NowUsed + Singleton.Parametrs.Count + Resx.AppResources.Questions;
         }
         private void Clicked5(object sender, EventArgs e) => Number(5);
         private void Clicked10(object sender, EventArgs e) => Number(10);
@@ -31,17 +31,16 @@ namespace StudentBook
         private void Clicked20(object sender, EventArgs e) => Number(20);
         private void Number(int n)
         {
-            CheckQuestions();
-            if (Singleton.Quiz.Questions.Count >= n)
+            if (questionCount >= n)
             {
                 Singleton.Parametrs.Count = n;
-                nQuestions.Text = "In database exists " + Singleton.Quiz.Questions.Count + " questions. Now used " + Singleton.Parametrs.Count + " questions";
+                nQuestions.Text = Resx.AppResources.InDB + questionCount + Resx.AppResources.NowUsed + Singleton.Parametrs.Count + Resx.AppResources.Questions;
                 Parametrs.SetParametrs(Singleton.Parametrs);
             }
             else
                 DisplayAlert("Warning!", "Don't touch this button", "idk sry(((9!");
         }
-        private void CheckQuestions()
+        private int CheckQuestions()
         {
             List<QuestionsToView> questionsToViews = Singleton.StudentDB.GetQuestionsRange(Singleton.StudentDB.GetQuestionsTable(), Singleton.Parametrs.Language);
             List<QuestionsToView> questions = new List<QuestionsToView>();
@@ -49,6 +48,7 @@ namespace StudentBook
             {
                 questions.AddRange(questionsToViews.Where(q => q.TopicID == Singleton.Parametrs.TopicsFilter[i].ID));
             }
+            return questions.Count;
         }
     }
 }

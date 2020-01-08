@@ -110,7 +110,8 @@ namespace StudentBook
         }
         private async void BackButton(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ResultOfPlayingRoom());
+            if (Singleton.Quiz.CurrentPosition > 0)
+                await Navigation.PushAsync(new ResultOfPlayingRoom());
             Navigation.RemovePage(this);
         }
     }
