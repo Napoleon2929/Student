@@ -51,7 +51,7 @@ namespace StudentBook
                     {
                         if (!CrossConnectivity.Current.IsConnected)
                         {
-                            if (await DisplayAlert("Warning!", "You don't have Internet connection for get database", "Try again", "Exit   "))
+                            if (await DisplayAlert(Resx.AppResources.Warning, Resx.AppResources.InternetError, Resx.AppResources.TryAgain, Resx.AppResources.Exit))
                                 continue;
                             else
                                 Environment.Exit(1);
@@ -95,7 +95,7 @@ namespace StudentBook
             questionsToViews = null;
             if (questions.Count == 0)
             {
-                await DisplayAlert("Warning!", "Don't have questions for your filters", "OK!");
+                await DisplayAlert(Resx.AppResources.Warning, Resx.AppResources.FiltersError, "OK!");
                 return false;
             }
             if (questions.Count <= count)
