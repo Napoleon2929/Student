@@ -18,7 +18,7 @@ namespace StudentBook
             InitializeComponent();
             checkAns.Text = Resx.AppResources.CheckAnswerButton;
             ToMenuButton.Text = Resx.AppResources.ToMenuButton;
-            stateLabel.Text = "Correct answers " + Singleton.Quiz.CorrectQuestions.Count + " from " + Singleton.Quiz.Questions.Count;
+            stateLabel.Text = Resx.AppResources.CorrectAnswers + Singleton.Quiz.CorrectQuestions.Count + Resx.AppResources.From + Singleton.Quiz.Questions.Count;
             checkAns.IsEnabled = Singleton.Quiz.UncorrectQuestions.Count != 0;
         }
 

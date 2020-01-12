@@ -143,11 +143,11 @@ namespace StudentBook.Droid
             if (!CanWithoutUpdate)
             {
                 IsCorrect = false;
-                Toast.MakeText(MainActivity.Instance, "Please check your internet connection", ToastLength.Long).Show();
+                Toast.MakeText(MainActivity.Instance, Resx.AppResources.InternetConnectionError, ToastLength.Long).Show();
                 CreateEmptyDB();
             }
             else
-                Toast.MakeText(MainActivity.Instance, "Can not update database", ToastLength.Long).Show();
+                Toast.MakeText(MainActivity.Instance, Resx.AppResources.UpdateError, ToastLength.Long).Show();
 
             //MainActivity.Instance.RunOnUiThread(()=> );
         }
