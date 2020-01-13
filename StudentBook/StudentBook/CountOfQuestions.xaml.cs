@@ -38,7 +38,7 @@ namespace StudentBook
                 Parametrs.SetParametrs(Singleton.Parametrs);
             }
             else
-                DisplayAlert("Warning!", "Don't touch this button", "idk sry(((9!");
+                DisplayAlert(Resx.AppResources.Warning, Resx.AppResources.CheckQuestions, "OK!");
         }
         private int CheckQuestions()
         {

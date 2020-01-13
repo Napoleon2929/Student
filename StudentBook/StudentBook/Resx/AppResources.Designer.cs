@@ -79,6 +79,24 @@ namespace StudentBook.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Check existing questions.
+        /// </summary>
+        public static string CheckQuestions {
+            get {
+                return ResourceManager.GetString("CheckQuestions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Correct answers .
+        /// </summary>
+        public static string CorrectAnswers {
+            get {
+                return ResourceManager.GetString("CorrectAnswers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Count of questions.
         /// </summary>
         public static string CountOfQuestions {
@@ -88,11 +106,56 @@ namespace StudentBook.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Exit    .
+        /// </summary>
+        public static string Exit {
+            get {
+                return ResourceManager.GetString("Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Don&apos;t have questions for your filters.
+        /// </summary>
+        public static string FiltersError {
+            get {
+                return ResourceManager.GetString("FiltersError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на  from .
+        /// </summary>
+        public static string From {
+            get {
+                return ResourceManager.GetString("From", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на In database exists .
         /// </summary>
         public static string InDB {
             get {
                 return ResourceManager.GetString("InDB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Please check your internet connection.
+        /// </summary>
+        public static string InternetConnectionError {
+            get {
+                return ResourceManager.GetString("InternetConnectionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на You don&apos;t have Internet connection for get database.
+        /// </summary>
+        public static string InternetError {
+            get {
+                return ResourceManager.GetString("InternetError", resourceCulture);
             }
         }
         
@@ -228,6 +291,33 @@ namespace StudentBook.Resx {
         public static string ToMenuButton {
             get {
                 return ResourceManager.GetString("ToMenuButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Try again.
+        /// </summary>
+        public static string TryAgain {
+            get {
+                return ResourceManager.GetString("TryAgain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Can not update database.
+        /// </summary>
+        public static string UpdateError {
+            get {
+                return ResourceManager.GetString("UpdateError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Warning!.
+        /// </summary>
+        public static string Warning {
+            get {
+                return ResourceManager.GetString("Warning", resourceCulture);
             }
         }
     }

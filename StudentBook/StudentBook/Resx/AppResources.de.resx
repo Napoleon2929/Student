@@ -123,11 +123,32 @@
   <data name="CheckAnswerButton" xml:space="preserve">
     <value>Antworten kontrollieren</value>
   </data>
+  <data name="CheckQuestions" xml:space="preserve">
+    <value>Check existing questions</value>
+  </data>
+  <data name="CorrectAnswers" xml:space="preserve">
+    <value>Korrekte Antworten </value>
+  </data>
   <data name="CountOfQuestions" xml:space="preserve">
     <value>Anzahl der Fragen</value>
   </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Exit    </value>
+  </data>
+  <data name="FiltersError" xml:space="preserve">
+    <value>Don't have questions for your filters</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value> von </value>
+  </data>
   <data name="InDB" xml:space="preserve">
     <value>Die datenbank existiert </value>
+  </data>
+  <data name="InternetConnectionError" xml:space="preserve">
+    <value>Please check your internet connection</value>
+  </data>
+  <data name="InternetError" xml:space="preserve">
+    <value>You don't have Internet connection for get database</value>
   </data>
   <data name="Languages" xml:space="preserve">
     <value>Sprachen</value>
@@ -173,5 +194,14 @@
   </data>
   <data name="ToMenuButton" xml:space="preserve">
     <value>Zum Hauptmenü</value>
+  </data>
+  <data name="TryAgain" xml:space="preserve">
+    <value>Try again</value>
+  </data>
+  <data name="UpdateError" xml:space="preserve">
+    <value>Can not update database</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning!</value>
   </data>
 </root>
