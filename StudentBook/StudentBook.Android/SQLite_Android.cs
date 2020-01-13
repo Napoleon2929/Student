@@ -21,7 +21,8 @@ namespace StudentBook.Droid
     class SQLite_Android : ISQLite
     {
         private readonly HttpClient httpClient;
-        private readonly string defaultLink = @"http://v33649w1.beget.tech/";
+        //private readonly string defaultLink = @"http://v33649w1.beget.tech/";
+        private readonly string defaultLink = @"https://stimey7.hs-emden-leer.de/mobile/";
         private readonly string versionName = "version.txt";
         private string versionPath;
         //private string databaseName;
